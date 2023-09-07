@@ -30,12 +30,12 @@ def escolha_exercicios(treino):
     global lista_exercicios
     lista_exercicios = []
     if treino == '1- PEITO | OMBRO | TRÍCEPS':
-        lista_exercicios = [*exerc_peito, *exerc_ombro, *exerc_triceps]
+        lista_exercicios = [exerc_peito + exerc_ombro + exerc_triceps]
     elif treino == '2- COSTAS | BÍCEPS':
-        lista_exercicios = [*exerc_costas, *exerc_biceps]
+        lista_exercicios = [exerc_costas + exerc_biceps]
     elif treino == '3- PERNA':
         lista_exercicios = exerc_perna
-    return str(lista_exercicios)
+    return lista_exercicios
 
 treino_selecionado = st.selectbox('Escolha o treino do dia:', (lista_treinos))
 
