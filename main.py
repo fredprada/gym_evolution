@@ -37,7 +37,7 @@ def escolha_exercicios(treino):
         lista_exercicios = exerc_perna
     return lista_exercicios
 
-col1, col2 = st.columns(2, 1)
+col1, col2 = st.columns([2, 1])
 with col1:
     data = st.date_input('Data', value=hora_atual)
 with col2:
