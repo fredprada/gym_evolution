@@ -30,9 +30,9 @@ def escolha_exercicios(treino):
     global lista_exercicios
     lista_exercicios = []
     if treino == '1- PEITO | OMBRO | TRÍCEPS':
-        [lista_exercicios.extend(l) for l in (exerc_peito,exerc_ombro,exerc_triceps)]
+        lista_exercicios = [lista_exercicios.extend(l) for l in (exerc_peito,exerc_ombro,exerc_triceps)]
     elif treino == '2- COSTAS | BÍCEPS':
-        [lista_exercicios.extend(l) for l in (exerc_costas,exerc_biceps)]
+        lista_exercicios = [lista_exercicios.extend(l) for l in (exerc_costas,exerc_biceps)]
     elif treino == '3- PERNA':
         lista_exercicios = exerc_perna
     return lista_exercicios
