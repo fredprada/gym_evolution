@@ -74,19 +74,19 @@ with col1:
     # select_exercicio_4 = st.selectbox('Exercício 4: ', (exercicio_4))
     # select_exercicio_5 = st.selectbox('Exercício 5: ', (exercicio_5))
 with col2:
-    quantidade_de_series_diferentes(qtd_series_exercicio_1[0])
+    quantidade_de_series_diferentes(qtd_series_exercicio_1)[0]
     # series_exercicio_2 = st.number_input('Núm Séries ex2: ', min_value = 0, max_value = 10)
     # series_exercicio_3 = st.number_input('Núm Séries ex3: ', min_value = 0, max_value = 10)
     # series_exercicio_4 = st.number_input('Núm Séries ex4: ', min_value = 0, max_value = 10)
     # series_exercicio_5 = st.number_input('Núm Séries ex5: ', min_value = 0, max_value = 10)
 with col3:
-    quantidade_de_series_diferentes(qtd_series_exercicio_1[1])
+    quantidade_de_series_diferentes(qtd_series_exercicio_1)[1]
     # reps_exercicio_2 = st.number_input('Núm Reps ex2: ', min_value = 0, max_value = 50)
     # reps_exercicio_3 = st.number_input('Núm Reps ex3: ', min_value = 0, max_value = 50)
     # reps_exercicio_4 = st.number_input('Núm Reps ex4: ', min_value = 0, max_value = 50)
     # reps_exercicio_5 = st.number_input('Núm Reps ex5: ', min_value = 0, max_value = 50)
 with col4:
-    quantidade_de_series_diferentes(qtd_series_exercicio_1[2])
+    quantidade_de_series_diferentes(qtd_series_exercicio_1)[2]
     # carga_exercicio_2 = st.number_input('Carga (kg) ex2: ', min_value = 0, max_value = 10000)
     # carga_exercicio_3 = st.number_input('Carga (kg) ex3: ', min_value = 0, max_value = 10000)
     # carga_exercicio_4 = st.number_input('Carga (kg) ex4: ', min_value = 0, max_value = 10000)
