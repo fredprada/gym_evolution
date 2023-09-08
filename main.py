@@ -39,10 +39,12 @@ def escolha_exercicios(treino):
 
 def quantidade_de_series_diferentes(qtd_series):
     if qtd_series > 1:
-        lista_box_series = []
+        lista_box_reps = []
+        lista_box_carga = []
         for item in range(1, qtd_series + 1):
-            lista_box_series.append(exec(f'series_exercicio_1_num_{item} = st.number_input("Núm Séries ex1: ", min_value = 0, max_value = 10)'))
-        return lista_box_series
+            lista_box_reps.append(exec(f'reps_exercicio_1_num_{item} = st.number_input("Núm Reps ex5: ", min_value = 0, max_value = 50)'))
+            lista_box_carga.append(exec(f'reps_exercicio_1_num_{item} = st.number_input("Núm Reps ex5: ", min_value = 0, max_value = 50)'))
+        return lista_box_reps, lista_box_carga
     else:
         return st.selectbox('Exercício 1: ', (exercicio_1))
 
