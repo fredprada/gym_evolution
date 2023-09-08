@@ -43,10 +43,12 @@ def quantidade_de_series_diferentes(qtd_series):
         lista_box_carga = []
         for item in range(1, qtd_series + 1):
             lista_box_reps.append(exec(f'reps_exercicio_1_num_{item} = st.number_input("Núm Reps ex{item}: ", min_value = 0, max_value = 50)'))
-            lista_box_carga.append(exec(f'reps_exercicio_1_num_{item} = st.number_input("Núm Reps ex{item}: ", min_value = 0, max_value = 50)'))
+            lista_box_carga.append(exec(f'carga_exercicio_1_num_{item} = st.number_input("Carga ex{item}: ", min_value = 0, max_value = 1000)'))
         return lista_box_reps, lista_box_carga
     else:
-        return st.selectbox('Exercício 1: ', (exercicio_1))
+        reps_ex_1 = reps_exercicio_1_num_1 = st.number_input("Núm Reps ex1: ", min_value = 0, max_value = 50)
+        carga_ex1 = carga_exercicio_1_num_1 = st.number_input("Carga ex1: ", min_value = 0, max_value = 1000)
+        return reps_ex_1, carga_ex1
 
 
 col1, col2 = st.columns([2, 1])
