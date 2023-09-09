@@ -18,7 +18,7 @@ with col1:
 with col2:
     data = st.date_input('Data', value=hora_atual)
 
-exercicio_num = 0
+exercicio_num = 1
 exercicio_1 = Exercicio(treino_selecionado).get_exercicio()
 
 col1, col2, col3, col4 = st.columns([3,1,1,1])
