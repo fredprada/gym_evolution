@@ -4,8 +4,7 @@ from datetime import timedelta
 from exercicio import Exercicio
 from serie import Serie
 
-st.set_page_config(page_title = "Evolução academia", page_icon = "💪")#, layout="wide")
-st.title('Evolução academia 💪')
+st.set_page_config(page_title = "Evolução academia", page_icon = "💪")
 
 hora_atual = datetime.datetime.now() - timedelta(hours=3)
 lista_treinos = ['1- PEITO | OMBRO | TRÍCEPS', 
@@ -34,13 +33,13 @@ for num in range(1, exercicio_num + 1):
         exec(f'qtd_series_exercicio_{num} = st.selectbox("Número de séries diferentes:", ([1, 2, 3, 4, 5]), key = "series_dif_{num}")')
     with col2:
         exec(f'series_exercicio_1_{num} = st.number_input("Séries: ", min_value = 0, max_value = 10, key = "serie_{num}")')
-        exec(f'Serie(qtd_series_exercicio_{num}).get_series({num})')
+        exec(f'Serie(qtd_series_exercicio_{num}, {num}).get_series()')
     with col3:
         exec(f'reps_exercicio_1_{num} = st.number_input("Núm Reps: ", min_value = 0, max_value = 50, key = "reps_{num}")')
-        exec(f'Serie(qtd_series_exercicio_{num}).get_reps({num})')
+        exec(f'Serie(qtd_series_exercicio_{num}, {num}).get_reps()')
     with col4:
         exec(f'carga_exercicio_1_{num} = st.number_input("Carga: ", min_value = 0, max_value = 10000, key = "carga_{num}")')
-        exec(f'Serie(qtd_series_exercicio_{num}).get_cargas({num})')
+        exec(f'Serie(qtd_series_exercicio_{num}, {num}).get_cargas()')
     st.markdown("""---""")
 
 st.button('Salvar')

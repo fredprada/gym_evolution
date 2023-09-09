@@ -1,8 +1,9 @@
 import streamlit as st
 
 class Serie:
-    def __init__(self, qtd_series):
+    def __init__(self, qtd_series, serie_num):
         self.qtd_series = qtd_series
+        self.serie_num = serie_num
 
     @st.cache_data
     def get_series(_self, serie_num):
