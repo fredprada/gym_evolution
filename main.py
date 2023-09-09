@@ -37,6 +37,8 @@ if st.button('Adicionar exercício'):
 
 # exec(f'exercicio{exercicio_num} = ExercicioRealizado({exercicio_num})')
 
+exercicio_num = Exercicio(treino_selecionado).get_exercicio()
+
 col1, col2, col3, col4 = st.columns([3,1,1,1])
 with col1:
     exec(f'select_exercicio{exercicio_num} = st.selectbox("Exercício {exercicio_num}: ", (exercicio_{exercicio_num}))')
