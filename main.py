@@ -3,6 +3,7 @@ import datetime
 from datetime import timedelta
 from exercicio import Exercicio
 from serie import Serie
+from salvar_dados import SalvarDados
 
 st.set_page_config(page_title = "Evolução academia", page_icon = "💪")
 
@@ -42,4 +43,43 @@ for num in range(1, exercicio_num + 1):
         exec(f'Serie(qtd_series_exercicio_{num}, {num}).get_cargas()')
     st.markdown("""---""")
 
-st.button('Salvar')
+lista_dados_coletados = []
+dict_info = {}
+for num in range(1, exercicio_num + 1):
+
+    dict_info[f"exec(f'select_exercicio{num}')"] = exec(f'select_exercicio{num}')
+    dict_info[f"exec(f'qtd_series_exercicio_{num}')"] = exec(f'qtd_series_exercicio_{num}')
+
+    dict_info[f"exec(f'series_exercicio_1_{num}')"] = exec(f'series_exercicio_1_{num}')
+    dict_info[f"exec(f'reps_exercicio_1_{num}')"] = exec(f'reps_exercicio_1_{num}')
+    dict_info[f"exec(f'carga_exercicio_1_{num}')"] = exec(f'carga_exercicio_1_{num}')
+    
+    dict_info[f"exec(f'series_exercicio_2_{num}')"] = exec(f'series_exercicio_2_{num}')
+    dict_info[f"exec(f'reps_exercicio_2_{num}')"] = exec(f'reps_exercicio_2_{num}')
+    dict_info[f"exec(f'carga_exercicio_2_{num}')"] = exec(f'carga_exercicio_2_{num}')
+    
+    dict_info[f"exec(f'series_exercicio_3_{num}')"] = exec(f'series_exercicio_3_{num}')
+    dict_info[f"exec(f'reps_exercicio_3_{num}')"] = exec(f'reps_exercicio_3_{num}')
+    dict_info[f"exec(f'carga_exercicio_3_{num}')"] = exec(f'carga_exercicio_3_{num}')
+    
+    dict_info[f"exec(f'series_exercicio_4_{num}')"] = exec(f'series_exercicio_4_{num}')
+    dict_info[f"exec(f'reps_exercicio_4_{num}')"] = exec(f'reps_exercicio_4_{num}')
+    dict_info[f"exec(f'carga_exercicio_4_{num}')"] = exec(f'carga_exercicio_4_{num}')
+    
+    dict_info[f"exec(f'series_exercicio_5_{num}')"] = exec(f'series_exercicio_5_{num}')
+    dict_info[f"exec(f'reps_exercicio_5_{num}')"] = exec(f'reps_exercicio_5_{num}')
+    dict_info[f"exec(f'carga_exercicio_5_{num}')"] = exec(f'carga_exercicio_5_{num}')
+    lista_dados_coletados.append(dict_info)
+    
+
+botao_salvar = st.button('Salvar')
+botao_ver_dados = st.button('Ver tabela com dados do banco')
+
+if botao_salvar:
+    # ETL list_to_add = func_add_row(date_of_the_game,time_played,pai,played_alone,time_of_the_game,enthusiasm_before_playing,rating,listened_to_music,rest_time,feeling_before_game,calorias)
+    SalvarDados(lista_dados_coletados).database_insertion()
+    # st.sidebar.text('Informações inseridas no banco de dados 😉')
+
+# if botao_ver_dados:
+#     # ETL list_to_add = func_add_row(date_of_the_game,time_played,pai,played_alone,time_of_the_game,enthusiasm_before_playing,rating,listened_to_music,rest_time,feeling_before_game,calorias)
+#     SalvarDados(list_to_add).retrieve_data_from_mongodb()
