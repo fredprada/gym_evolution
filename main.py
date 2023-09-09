@@ -15,7 +15,7 @@ col1, col2, col3 = st.columns([2, 1, 1])
 with col1:
     treino_selecionado = st.selectbox('Escolha o treino do dia:', (lista_treinos))
 with col2:
-    data = st.date_input('Data', value=hora_atual, format="DD.MM.YYYY",)
+    data = st.date_input('Data', value=hora_atual, format="DD/MM/YYYY",)
 with col3:
     exercicio_num = st.selectbox("Quantos ex você vai fazer?", ([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))
 
