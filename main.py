@@ -37,7 +37,7 @@ exercicio_num = st.number_input("Quantos exercícios você vai fazer?", min_valu
 
 lista_exercicio = Exercicio(treino_selecionado).get_exercicio()
 
-for num in range(1, exercicio_num):
+for num in range(exercicio_num):
     col1, col2, col3, col4 = st.columns([3,1,1,1])
     with col1:
         exec(f'select_exercicio{num} = st.selectbox("Exercício {num}: ", (lista_exercicio))')
