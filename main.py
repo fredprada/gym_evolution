@@ -15,6 +15,7 @@ lista_treinos = ['1- PEITO | OMBRO | TRÍCEPS',
 exercicio_num = 1
 
 def adc_exercicio():
+    global exercicio_num
     exercicio_num += 1
 
 col1, col2 = st.columns([2, 1])
