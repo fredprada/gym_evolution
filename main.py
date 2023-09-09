@@ -74,14 +74,14 @@ col1, col2, col3, col4 = st.columns([3,1,1,1])
 with col1:
     select_exercicio_1 = st.selectbox('Exercício 1: ', (exercicio_1))
     qtd_series_exercicio_1 = st.selectbox('Número de séries diferentes: ', ([1, 2, 3, 4, 5]))
-with col2:
-    series_exercicio_1 = st.number_input('Séries 1: ', min_value = 0, max_value = 10)
-    series_diferentes(qtd_series_exercicio_1)
-with col3:
-    reps_exercicio_1 = st.number_input('Núm Reps 1: ', min_value = 0, max_value = 50)
-    reps_diferentes(qtd_series_exercicio_1)
-with col4:
-    carga_exercicio_1 = st.number_input('Carga 1: ', min_value = 0, max_value = 10000)
-    cargas_diferentes(qtd_series_exercicio_1)
+# with col2:
+#     series_exercicio_1 = st.number_input('Séries 1: ', min_value = 0, max_value = 10)
+#     series_diferentes(qtd_series_exercicio_1)
+# with col3:
+#     reps_exercicio_1 = st.number_input('Núm Reps 1: ', min_value = 0, max_value = 50)
+#     reps_diferentes(qtd_series_exercicio_1)
+# with col4:
+#     carga_exercicio_1 = st.number_input('Carga 1: ', min_value = 0, max_value = 10000)
+#     cargas_diferentes(qtd_series_exercicio_1)
 
 st.button('Salvar')
