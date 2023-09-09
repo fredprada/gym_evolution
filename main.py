@@ -41,11 +41,11 @@ st.button('Adicionar exercício', on_click=adc_exercicio)
 
 # exec(f'exercicio{exercicio_num} = ExercicioRealizado({exercicio_num})')
 
-exercicio_num = Exercicio(treino_selecionado).get_exercicio()
+lista_exercicio = Exercicio(treino_selecionado).get_exercicio()
 
 col1, col2, col3, col4 = st.columns([3,1,1,1])
 with col1:
-    exec(f'select_exercicio{exercicio_num} = st.selectbox("Exercício {exercicio_num}: ", (exercicio_{exercicio_num}))')
+    exec(f'select_exercicio{exercicio_num} = st.selectbox("Exercício {exercicio_num}: ", (lista_exercicio))')
     exec(f'qtd_series_exercicio_{exercicio_num} = st.selectbox("Número de séries diferentes: ", ([1, 2, 3, 4, 5]))')
 with col2:
     exec(f'series_exercicio_{exercicio_num} = st.number_input("Séries 1: ", min_value = 0, max_value = 10)')
