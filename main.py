@@ -31,13 +31,13 @@ with col2:
 # with col4:
 #     carga_exercicio_1 = st.number_input('Carga 1: ', min_value = 0, max_value = 10000)
 
-exercicio_num = st.number_input("Quantos exercícios você vai fazer?", min_value=1, max_value=10)
+exercicio_num = st.selectbox("Quantos exercícios você vai fazer?", ([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))
 
 # exec(f'exercicio{exercicio_num} = ExercicioRealizado({exercicio_num})')
 
 lista_exercicio = Exercicio(treino_selecionado).get_exercicio()
 
-for num in range(exercicio_num):
+for num in range(1, exercicio_num):
     col1, col2, col3, col4 = st.columns([3,1,1,1])
     with col1:
         exec(f'select_exercicio{num} = st.selectbox("Exercício {num}: ", (lista_exercicio))')
