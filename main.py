@@ -43,7 +43,7 @@ st.button('Adicionar exercício', on_click=adc_exercicio)
 
 lista_exercicio = Exercicio(treino_selecionado).get_exercicio()
 
-for num in range(2, exercicio_num):
+for num in range(1, exercicio_num):
     col1, col2, col3, col4 = st.columns([3,1,1,1])
     with col1:
         exec(f'select_exercicio{num} = st.selectbox("Exercício {num}: ", (lista_exercicio))')
