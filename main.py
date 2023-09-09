@@ -41,7 +41,7 @@ for num in range(1, exercicio_num):
     col1, col2, col3, col4 = st.columns([3,1,1,1])
     with col1:
         exec(f'select_exercicio{num} = st.selectbox("Exercício 1 ({num}): ", (lista_exercicio))')
-        exec(f'qtd_series_exercicio_{num} = st.selectbox("Número de séries diferentes: "+{num}, ([1, 2, 3, 4, 5]))')
+        exec(f'qtd_series_exercicio_{num} = st.selectbox("Número de séries diferentes: {num}", ([1, 2, 3, 4, 5]))')
     with col2:
         exec(f'series_exercicio_1_{num} = st.number_input("Séries 1 ({num}): ", min_value = 0, max_value = 10)')
         exec(f'Serie(qtd_series_exercicio_{num}).get_series({num})')
