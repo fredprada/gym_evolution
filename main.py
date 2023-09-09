@@ -7,7 +7,6 @@ from serie import Serie
 st.title('Evolução de Treino')
 
 hora_atual = datetime.datetime.now() - timedelta(hours=3)
-hora_atual = hora_atual.strftime("%d/%m/%Y")
 lista_treinos = ['1- PEITO | OMBRO | TRÍCEPS', 
                  '2- COSTAS | BÍCEPS',
                  '3- PERNA']
@@ -16,7 +15,7 @@ col1, col2, col3 = st.columns([2, 1, 1])
 with col1:
     treino_selecionado = st.selectbox('Escolha o treino do dia:', (lista_treinos))
 with col2:
-    data = st.date_input('Data', value=hora_atual)
+    data = st.date_input('Data', value=hora_atual, format="DD.MM.YYYY",)
 with col3:
     exercicio_num = st.selectbox("Quantos ex você vai fazer?", ([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))
 
