@@ -43,13 +43,13 @@ for num in range(1, exercicio_num):
         exec(f'select_exercicio{num} = st.selectbox("Exercício 1 ({num}): ", (lista_exercicio))')
         exec(f'qtd_series_exercicio_{num} = st.selectbox("Número de séries diferentes: ", ([1, 2, 3, 4, 5]))')
     with col2:
-        exec(f'series_exercicio_{num} = st.number_input("Séries 1 ({num}): ", min_value = 0, max_value = 10)')
+        exec(f'series_exercicio_1_{num} = st.number_input("Séries 1 ({num}): ", min_value = 0, max_value = 10)')
         exec(f'Serie(qtd_series_exercicio_{num}).get_series({num})')
     with col3:
-        exec(f'reps_exercicio_{num} = st.number_input("Núm Reps 1 ({num}): ", min_value = 0, max_value = 50)')
+        exec(f'reps_exercicio_1_{num} = st.number_input("Núm Reps 1 ({num}): ", min_value = 0, max_value = 50)')
         exec(f'Serie(qtd_series_exercicio_{num}).get_reps({num})')
     with col4:
-        exec(f'carga_exercicio_{num} = st.number_input("Carga 1 ({num}): ", min_value = 0, max_value = 10000)')
+        exec(f'carga_exercicio_1_{num} = st.number_input("Carga 1 ({num}): ", min_value = 0, max_value = 10000)')
         exec(f'Serie(qtd_series_exercicio_{num}).get_cargas({num})')
 
 st.button('Salvar')
