@@ -12,6 +12,8 @@ lista_treinos = ['1- PEITO | OMBRO | TRÍCEPS',
                  '2- COSTAS | BÍCEPS',
                  '3- PERNA']
 
+exercicio_num = 1
+
 def adc_exercicio():
     exercicio_num += 1
 
@@ -21,7 +23,6 @@ with col1:
 with col2:
     data = st.date_input('Data', value=hora_atual)
 
-exercicio_num = 1
 # exercicio_1 = Exercicio(treino_selecionado).get_exercicio()
 
 # col1, col2, col3, col4 = st.columns([3,1,1,1])
@@ -34,7 +35,6 @@ exercicio_num = 1
 #     reps_exercicio_1 = st.number_input('Núm Reps 1: ', min_value = 0, max_value = 50)
 # with col4:
 #     carga_exercicio_1 = st.number_input('Carga 1: ', min_value = 0, max_value = 10000)
-
 
 st.button('Adicionar exercício', on_click=adc_exercicio)
 
