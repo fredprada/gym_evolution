@@ -64,7 +64,7 @@ with col2:
     data = st.date_input('Data', value=hora_atual)
 
 # exercicio_1 = escolha_exercicios(treino_selecionado)
-exercicio_1 = Exercicio(treino_selecionado)
+exercicio_1 = Exercicio(treino_selecionado).get_exercicio()
 # exercicio_2 = escolha_exercicios(treino_selecionado)
 # exercicio_3 = escolha_exercicios(treino_selecionado)
 # exercicio_4 = escolha_exercicios(treino_selecionado)
