@@ -3,7 +3,7 @@ import datetime
 from datetime import timedelta
 from exercicio import Exercicio
 from serie import Serie
-from exercicio_realizado import ExercicioRealizado
+# from exercicio_realizado import ExercicioRealizado
 
 st.title('Evolução de Treino')
 
@@ -35,7 +35,7 @@ with col4:
 if st.button('Adicionar exercício'):
     exercicio_num += 1
 
-exec(f'exercicio{exercicio_num} = ExercicioRealizado({exercicio_num})')
+# exec(f'exercicio{exercicio_num} = ExercicioRealizado({exercicio_num})')
 
 col1, col2, col3, col4 = st.columns([3,1,1,1])
 with col1:
