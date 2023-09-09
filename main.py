@@ -12,12 +12,6 @@ lista_treinos = ['1- PEITO | OMBRO | TRÍCEPS',
                  '2- COSTAS | BÍCEPS',
                  '3- PERNA']
 
-exercicio_num = 1
-
-def adc_exercicio():
-    global exercicio_num
-    exercicio_num += 1
-
 col1, col2 = st.columns([2, 1])
 with col1:
     treino_selecionado = st.selectbox('Escolha o treino do dia:', (lista_treinos))
@@ -37,7 +31,7 @@ with col2:
 # with col4:
 #     carga_exercicio_1 = st.number_input('Carga 1: ', min_value = 0, max_value = 10000)
 
-st.button('Adicionar exercício', on_click=adc_exercicio)
+exercicio_num = st.number_input("Quantos exercícios você vai fazer?", min_value=1, max_value=10)
 
 # exec(f'exercicio{exercicio_num} = ExercicioRealizado({exercicio_num})')
 
