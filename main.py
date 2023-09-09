@@ -37,19 +37,21 @@ exercicio_num = st.selectbox("Quantos exercícios você vai fazer?", ([1, 2, 3, 
 
 lista_exercicio = Exercicio(treino_selecionado).get_exercicio()
 
-for num in range(1, exercicio_num):
+for num in range(1, exercicio_num + 1):
     col1, col2, col3, col4 = st.columns([3,1,1,1])
     with col1:
-        exec(f'select_exercicio{num} = st.selectbox("Exercício 1 ({num}): ", (lista_exercicio))')
+        exec(f'select_exercicio{num} = st.selectbox("Exercício ({num}): ", (lista_exercicio))')
         exec(f'qtd_series_exercicio_{num} = st.selectbox("Número de séries diferentes: {num}", ([1, 2, 3, 4, 5]))')
     with col2:
-        exec(f'series_exercicio_1_{num} = st.number_input("Séries 1 ({num}): ", min_value = 0, max_value = 10)')
+        exec(f'series_exercicio_1_{num} = st.number_input("Séries ({num}): ", min_value = 0, max_value = 10)')
         exec(f'Serie(qtd_series_exercicio_{num}).get_series({num})')
     with col3:
-        exec(f'reps_exercicio_1_{num} = st.number_input("Núm Reps 1 ({num}): ", min_value = 0, max_value = 50)')
+        exec(f'reps_exercicio_1_{num} = st.number_input("Núm Reps ({num}): ", min_value = 0, max_value = 50)')
         exec(f'Serie(qtd_series_exercicio_{num}).get_reps({num})')
     with col4:
-        exec(f'carga_exercicio_1_{num} = st.number_input("Carga 1 ({num}): ", min_value = 0, max_value = 10000)')
+        exec(f'carga_exercicio_1_{num} = st.number_input("Carga ({num}): ", min_value = 0, max_value = 10000)')
         exec(f'Serie(qtd_series_exercicio_{num}).get_cargas({num})')
+    st.markdown("""---""")
+
 
 st.button('Salvar')
