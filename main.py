@@ -4,7 +4,8 @@ from datetime import timedelta
 from exercicio import Exercicio
 from serie import Serie
 
-st.title('Evolução de Treino')
+st.set_page_config(page_title = "Evolução academia", page_icon = "💪")#, layout="wide")
+st.title('Evolução academia')
 
 hora_atual = datetime.datetime.now() - timedelta(hours=3)
 lista_treinos = ['1- PEITO | OMBRO | TRÍCEPS', 
