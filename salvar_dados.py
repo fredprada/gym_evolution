@@ -17,8 +17,9 @@ class salvar_dados_mongodb:
 
     def database_insertion(self):
         self.connect_to_mongodb()
-        st.sidebar.text('Inserção em progresso')
+        st.sidebar.text('Salvando...')
         collection.insert_many(self.tabela_para_salvar)
+        st.sidebar.text('Dados salvos!')
 
     def retrieve_data_from_mongodb(self):
         collection = self.connect_to_mongodb()
