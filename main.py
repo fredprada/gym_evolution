@@ -98,7 +98,8 @@ variaveis_valores = {}
 
 # Percorra a lista de variáveis e adicione-as ao dicionário com seus valores
 for variavel in flat_lista_variaveis_completa:
-    variaveis_valores[f'{variavel}'] = variavel
+    valor = globals().get(variavel, None)
+    variaveis_valores[f'{variavel}'] = valor
     lista_variaveis_valores.append(variaveis_valores)
 
 botao_salvar = st.button('Salvar')
