@@ -44,11 +44,11 @@ for num in range(1, exercicio_num + 1):
     with col4:
         exec(f'carga_exercicio_1_{num} = st.number_input("Carga: ", min_value = 0, max_value = 10000, key = "carga_{num}")')
         exec(f'Serie(qtd_series_exercicio_{num}, {num}).get_cargas()')
-    
+    exec(f'qtd = qtd_series_exercicio_{num}')
     lista_variaveis.append([f'select_exercicio{num}',
                             f'qtd_series_exercicio_{num}',
                             f'series_exercicio_1_{num}',
-                            st.selectbox("Número de séries diferentes:", ([1, 2, 3, 4, 5]), key = exec(f"series_dif_{num}")),
+                            qtd,
                             # f'series_exercicio_{num}_num_{qtd_series}',
                             f'reps_exercicio_1_{num}',
                             # f'reps_exercicio_{num}_num_{qtd_series}',
