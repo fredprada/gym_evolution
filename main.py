@@ -48,9 +48,9 @@ for num in range(1, exercicio_num + 1):
     exec(f'qtd_series = qtd_series_exercicio_{num}')
     lista_series_difs = []
     for qtd in range(1, qtd_series + 1):
-        var_series_dif = [f'series_exercicio_{num}_num_{qtd}',
-                          f'reps_exercicio_{num}_num_{qtd}',
-                          f'carga_exercicio_{num}_num_{qtd}']
+        var_series_dif = [f'series_exercicio_{qtd}_num_{num}',
+                          f'reps_exercicio_{qtd}_num_{num}',
+                          f'carga_exercicio_{qtd}_num_{num}']
         lista_series_difs.append(var_series_dif)
     variaveis_conjunto = [f'select_exercicio{num}',
                           f'qtd_series_exercicio_{num}',
