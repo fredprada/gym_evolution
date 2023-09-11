@@ -55,12 +55,13 @@ for num in range(1, exercicio_num + 1):
     lista_variaveis.append([f'select_exercicio{num}',
                             f'qtd_series_exercicio_{num}',
                             f'series_exercicio_1_{num}',
-                            lista_series_exercicio,
                             f'reps_exercicio_1_{num}',
-                            lista_reps_exercicio,
-                            f'carga_exercicio_1_{num}',
-                            lista_carga_exercicio
-                            ])
+                            f'carga_exercicio_1_{num}'
+                            ]
+                            +lista_series_exercicio
+                            +lista_reps_exercicio
+                            +lista_carga_exercicio
+                            )
     st.markdown("""---""")
 
 lista_dados_coletados = [{'var':lista_variaveis}]
