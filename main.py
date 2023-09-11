@@ -52,8 +52,12 @@ for num in range(1, exercicio_num + 1):
         lista_series_exercicio.append(f'series_exercicio_{num}_num_{qtd}')
         lista_reps_exercicio.append(f'reps_exercicio_{num}_num_{qtd}')
         lista_carga_exercicio.append(f'carga_exercicio_{num}_num_{qtd}')
-    variaveis_conjunto = [f'select_exercicio{num}' + f'qtd_series_exercicio_{num}' + f'series_exercicio_1_{num}' + f'reps_exercicio_1_{num}' + f'carga_exercicio_1_{num}'] + lista_series_exercicio + lista_reps_exercicio + lista_carga_exercicio
-    lista_variaveis.append(variaveis_conjunto)
+    variaveis_conjunto = [f'select_exercicio{num}',
+                          f'qtd_series_exercicio_{num}',
+                          f'series_exercicio_1_{num}',
+                          f'reps_exercicio_1_{num}',
+                          f'carga_exercicio_1_{num}']
+    lista_variaveis.append([variaveis_conjunto + lista_series_exercicio + lista_reps_exercicio + lista_carga_exercicio])
     st.markdown("""---""")
 
 lista_dados_coletados = [{'var':lista_variaveis}]
