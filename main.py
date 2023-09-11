@@ -97,8 +97,7 @@ variaveis_valores = {}
 
 # Percorra a lista de variáveis e adicione-as ao dicionário com seus valores
 for variavel in flat_lista_variaveis_completa:
-    variaveis_valores['variavel'] = variavel
-
+    variaveis_valores['{variavel}'] = variavel
 
 botao_salvar = st.button('Salvar')
 botao_ver_dados = st.button('Ver tabela com dados do banco')
