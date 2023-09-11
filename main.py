@@ -82,6 +82,6 @@ if botao_salvar:
     salvar_dados_mongodb(lista_dados_coletados).database_insertion()
     # st.sidebar.text('Informações inseridas no banco de dados 😉')
 
-# if botao_ver_dados:
-#     # ETL list_to_add = func_add_row(date_of_the_game,time_played,pai,played_alone,time_of_the_game,enthusiasm_before_playing,rating,listened_to_music,rest_time,feeling_before_game,calorias)
-#     salvar_dados_mongodb(list_to_add).retrieve_data_from_mongodb()
+if botao_ver_dados:
+    # ETL list_to_add = func_add_row(date_of_the_game,time_played,pai,played_alone,time_of_the_game,enthusiasm_before_playing,rating,listened_to_music,rest_time,feeling_before_game,calorias)
+    salvar_dados_mongodb(lista_dados_coletados).retrieve_data_from_mongodb()
