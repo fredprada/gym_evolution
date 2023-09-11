@@ -90,7 +90,14 @@ dict_info = {}
 #     dict_info[f"exec(f'reps_exercicio_5_{num}')"] = exec(f'reps_exercicio_5_{num}')
 #     dict_info[f"exec(f'carga_exercicio_5_{num}')"] = exec(f'carga_exercicio_5_{num}')
 #     lista_dados_coletados.append(dict_info)
+dict_valores_variaveis = {}
 
+for lista in lista_variaveis:
+    for sublista in lista:
+        for variavel in sublista:
+            if isinstance(variavel, str):
+                valor = locals().get(variavel, None)
+                dict_valores_variaveis[variavel] = valor
 
 botao_salvar = st.button('Salvar')
 botao_ver_dados = st.button('Ver tabela com dados do banco')
@@ -102,4 +109,4 @@ if botao_salvar:
 if botao_ver_dados:
     # ETL list_to_add = func_add_row(date_of_the_game,time_played,pai,played_alone,time_of_the_game,enthusiasm_before_playing,rating,listened_to_music,rest_time,feeling_before_game,calorias)
     # salvar_dados_mongodb(lista_dados_coletados).retrieve_data_from_mongodb()
-    st.sidebar.text([lista_variaveis])
+    st.sidebar.text(dict_valores_variaveis)
