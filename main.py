@@ -45,20 +45,19 @@ for num in range(1, exercicio_num + 1):
         exec(f'carga_exercicio_1_{num} = st.number_input("Carga: ", min_value = 0, max_value = 10000, key = "carga_{num}")')
         exec(f'Serie(qtd_series_exercicio_{num}, {num}).get_cargas()')
     exec(f'qtd_series = qtd_series_exercicio_{num}')
-    lista_series_exercicio = []
-    lista_reps_exercicio = []
-    lista_carga_exercicio = []
+    lista_series_difs = []
     for qtd in range(1, qtd_series + 1):
-        lista_series_exercicio.append(f'series_exercicio_{num}_num_{qtd}')
-        lista_reps_exercicio.append(f'reps_exercicio_{num}_num_{qtd}')
-        lista_carga_exercicio.append(f'carga_exercicio_{num}_num_{qtd}')
+        var_series_dif = [f'series_exercicio_{num}_num_{qtd}',
+                          f'reps_exercicio_{num}_num_{qtd}',
+                          f'carga_exercicio_{num}_num_{qtd}']
+        lista_series_difs.append(var_series_dif)
     variaveis_conjunto = [f'select_exercicio{num}',
                           f'qtd_series_exercicio_{num}',
                           f'series_exercicio_1_{num}',
                           f'reps_exercicio_1_{num}',
                           f'carga_exercicio_1_{num}']
     lista_variaveis.append(variaveis_conjunto)
-    lista_variaveis = lista_variaveis + lista_series_exercicio + lista_reps_exercicio + lista_carga_exercicio
+    lista_variaveis_completa = lista_variaveis + lista_series_difs
     st.markdown("""---""")
 
 lista_dados_coletados = [{'var':lista_variaveis}]
@@ -90,7 +89,7 @@ dict_info = {}
 
 variaveis_valores = {}
 
-for variavel_lista in lista_variaveis:
+for variavel_lista in lista_variaveis_completa:
     for variavel in variavel_lista:
         if isinstance(variavel, str):
             valor = globals().get(variavel, None)
@@ -107,5 +106,5 @@ if botao_salvar:
 if botao_ver_dados:
     # ETL list_to_add = func_add_row(date_of_the_game,time_played,pai,played_alone,time_of_the_game,enthusiasm_before_playing,rating,listened_to_music,rest_time,feeling_before_game,calorias)
     # salvar_dados_mongodb(lista_dados_coletados).retrieve_data_from_mongodb()
-    st.sidebar.text(lista_variaveis)
+    st.sidebar.text(lista_variaveis_completa)
     st.sidebar.text(variaveis_valores)
