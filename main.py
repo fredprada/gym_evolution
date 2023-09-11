@@ -47,17 +47,16 @@ for num in range(1, exercicio_num + 1):
     lista_variaveis.append([f'select_exercicio{num}',
                             f'qtd_series_exercicio_{num}',
                             f'series_exercicio_1_{num}',
-                            f'Serie(qtd_series_exercicio_{num}',
+                            f'series_exercicio_{num}_num_{f"qtd_series_exercicio_{num}"}',
                             f'reps_exercicio_1_{num}',
-                            f'Serie(qtd_series_exercicio_{num}',
+                            f'reps_exercicio_{num}_num_{f"qtd_series_exercicio_{num}"}',
                             f'carga_exercicio_1_{num}',
-                            f'Serie(qtd_series_exercicio_{num}'])
+                            f'carga_exercicio_{num}_num_{f"qtd_series_exercicio_{num}"}',])
     st.markdown("""---""")
-
 
 lista_dados_coletados = [{'var':lista_variaveis}]
 dict_info = {}
-# for num in range(1, exercicio_num + 1):
+# for num in range(1, len(lista_variaveis)):
 #     dict_info[f"exec(f'select_exercicio{num}')"] = exec(f'select_exercicio{num}')
 #     dict_info[f"exec(f'qtd_series_exercicio_{num}')"] = exec(f'qtd_series_exercicio_{num}')
 
