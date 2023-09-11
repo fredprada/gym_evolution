@@ -49,9 +49,9 @@ for num in range(1, exercicio_num + 1):
     lista_reps_exercicio = []
     lista_carga_exercicio = []
     for qtd in range(1, qtd_series + 1):
-        lista_series_exercicio.append([f'series_exercicio_{num}_num_{qtd}'])
-        lista_reps_exercicio.append([f'reps_exercicio_{num}_num_{qtd}'])
-        lista_carga_exercicio.append([f'carga_exercicio_{num}_num_{qtd}'])
+        lista_series_exercicio.append(f'series_exercicio_{num}_num_{qtd}')
+        lista_reps_exercicio.append(f'reps_exercicio_{num}_num_{qtd}')
+        lista_carga_exercicio.append(f'carga_exercicio_{num}_num_{qtd}')
     variaveis_conjunto = [f'select_exercicio{num}',
                             f'qtd_series_exercicio_{num}',
                             f'series_exercicio_1_{num}',
@@ -88,20 +88,14 @@ dict_info = {}
 #     dict_info[f"exec(f'carga_exercicio_5_{num}')"] = exec(f'carga_exercicio_5_{num}')
 #     lista_dados_coletados.append(dict_info)
 
-# Função recursiva para aplanar listas aninhadas e encontrar valores
-def aplanar_lista_e_encontrar_valores(lista, dicionario_retorno):
-    for elemento in lista:
-        if isinstance(elemento, list):
-            aplanar_lista_e_encontrar_valores(elemento, dicionario_retorno)
-        elif elemento in dicionario_retorno:
-            dicionario_retorno[elemento] = dicionario_retorno[elemento]
-
-# Crie um dicionário vazio para armazenar os valores das variáveis
 variaveis_valores = {}
 
-# Chame a função para encontrar os valores
-aplanar_lista_e_encontrar_valores(lista_variaveis, variaveis_valores)
-
+for variavel_lista in lista_variaveis:
+    for variavel in variavel_lista:
+        if isinstance(variavel, str):
+            valor = globals().get(variavel, None)
+            if isinstance(valor, (int, str)):
+                variaveis_valores[variavel] = valor
 
 botao_salvar = st.button('Salvar')
 botao_ver_dados = st.button('Ver tabela com dados do banco')
