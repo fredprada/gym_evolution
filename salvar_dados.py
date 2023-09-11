@@ -3,7 +3,7 @@ import os
 import streamlit as st
 import pandas as pd
 
-class SalvarDados:
+class salvar_dados_mongodb:
     def __init__(self, tabela_para_salvar):
         self.tabela_para_salvar = tabela_para_salvar
 

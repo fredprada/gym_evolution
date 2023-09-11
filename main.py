@@ -3,8 +3,9 @@ import datetime
 from datetime import timedelta
 from exercicio import Exercicio
 from serie import Serie
-from salvar_dados import SalvarDados
+from salvar_dados import salvar_dados_mongodb
 from pymongo import MongoClient
+import os
 
 st.set_page_config(page_title = "Evolução academia", page_icon = "💪")
 
@@ -78,9 +79,9 @@ botao_ver_dados = st.button('Ver tabela com dados do banco')
 
 if botao_salvar:
     # ETL list_to_add = func_add_row(date_of_the_game,time_played,pai,played_alone,time_of_the_game,enthusiasm_before_playing,rating,listened_to_music,rest_time,feeling_before_game,calorias)
-    SalvarDados(lista_dados_coletados).database_insertion()
+    salvar_dados_mongodb(lista_dados_coletados).database_insertion()
     # st.sidebar.text('Informações inseridas no banco de dados 😉')
 
 # if botao_ver_dados:
 #     # ETL list_to_add = func_add_row(date_of_the_game,time_played,pai,played_alone,time_of_the_game,enthusiasm_before_playing,rating,listened_to_music,rest_time,feeling_before_game,calorias)
-#     SalvarDados(list_to_add).retrieve_data_from_mongodb()
+#     salvar_dados_mongodb(list_to_add).retrieve_data_from_mongodb()
