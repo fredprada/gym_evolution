@@ -1,4 +1,4 @@
-pymongo
+pymongo[tls,srv]
 streamlit
 pandas
 matplotlib
