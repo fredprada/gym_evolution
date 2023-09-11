@@ -6,7 +6,6 @@ from serie import Serie
 from salvar_dados import salvar_dados_mongodb
 from pymongo import MongoClient
 import os
-from itertools import zip_longest
 
 st.set_page_config(page_title = "Evolução academia", page_icon = "💪")
 
@@ -51,18 +50,17 @@ for num in range(1, exercicio_num + 1):
         var_series_dif = [f'series_exercicio_{num}_num_{qtd}',
                           f'reps_exercicio_{num}_num_{qtd}',
                           f'carga_exercicio_{num}_num_{qtd}']
-        lista_series_difs.append(var_series_dif)
+        lista_series_difs =+ var_series_dif
     variaveis_conjunto = [f'select_exercicio{num}',
                           f'qtd_series_exercicio_{num}',
                           f'series_exercicio_1_{num}',
                           f'reps_exercicio_1_{num}',
                           f'carga_exercicio_1_{num}']
     lista_variaveis.append(variaveis_conjunto)
-    lista_variaveis_completa = [var1 + var2 for var1, var2 in zip(lista_variaveis, lista_series_difs)]
-
+    lista_variaveis_completa = lista_variaveis + lista_series_difs
     st.markdown("""---""")
 
-lista_dados_coletados = [{'var':lista_variaveis_completa}]
+lista_dados_coletados = [{'var':lista_variaveis}]
 dict_info = {}
 # for num in range(1, len(lista_variaveis)):
 #     dict_info[f"exec(f'select_exercicio{num}')"] = exec(f'select_exercicio{num}')
@@ -92,7 +90,7 @@ dict_info = {}
 variaveis_valores = {}
 
 # Percorra todas as variáveis em todas as listas
-for variavel_lista in lista_variaveis_completa:
+for variavel_lista in lista_variaveis:
     for variavel in variavel_lista:
         if isinstance(variavel, str):
             valor = globals().get(variavel, None)
