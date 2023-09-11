@@ -98,7 +98,7 @@ variaveis_valores = {}
 
 # Percorra a lista de variáveis e adicione-as ao dicionário com seus valores
 for variavel in flat_lista_variaveis_completa:
-    variaveis_valores['{variavel}'] = variavel
+    variaveis_valores[f'{variavel}'] = variavel
     lista_variaveis_valores.append(variaveis_valores)
 
 botao_salvar = st.button('Salvar')
@@ -112,4 +112,4 @@ if botao_ver_dados:
     # ETL list_to_add = func_add_row(date_of_the_game,time_played,pai,played_alone,time_of_the_game,enthusiasm_before_playing,rating,listened_to_music,rest_time,feeling_before_game,calorias)
     # salvar_dados_mongodb(lista_dados_coletados).retrieve_data_from_mongodb()
     st.sidebar.text(flat_lista_variaveis_completa)
-    st.sidebar.text(variaveis_valores)
+    st.sidebar.text(lista_variaveis_valores)
