@@ -59,7 +59,7 @@ for num in range(1, exercicio_num + 1):
                             f'reps_exercicio_1_{num}',
                             lista_reps_exercicio,
                             f'carga_exercicio_1_{num}',
-                            lista_carga_exercicio'
+                            lista_carga_exercicio
                             ])
     st.markdown("""---""")
 
