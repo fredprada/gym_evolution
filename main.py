@@ -28,6 +28,7 @@ with col4:
 st.markdown("""---""")
 
 lista_exercicio = Exercicio(treino_selecionado).get_exercicio()
+lista_variaveis = []
 
 for num in range(1, exercicio_num + 1):
     col1, col2, col3, col4 = st.columns([3,1,1,1])
@@ -43,35 +44,43 @@ for num in range(1, exercicio_num + 1):
     with col4:
         exec(f'carga_exercicio_1_{num} = st.number_input("Carga: ", min_value = 0, max_value = 10000, key = "carga_{num}")')
         exec(f'Serie(qtd_series_exercicio_{num}, {num}).get_cargas()')
+    lista_variaveis.append(['select_exercicio{num}',
+                            'qtd_series_exercicio_{num}',
+                            'series_exercicio_1_{num}',
+                            'Serie(qtd_series_exercicio_{num}',
+                            'reps_exercicio_1_{num}',
+                            'Serie(qtd_series_exercicio_{num}',
+                            'carga_exercicio_1_{num}',
+                            'Serie(qtd_series_exercicio_{num}'])
     st.markdown("""---""")
 
 
-lista_dados_coletados = []
+lista_dados_coletados = [{'var':lista_variaveis}]
 dict_info = {}
-for num in range(1, exercicio_num + 1):
-    dict_info[f"exec(f'select_exercicio{num}')"] = exec(f'select_exercicio{num}')
-    dict_info[f"exec(f'qtd_series_exercicio_{num}')"] = exec(f'qtd_series_exercicio_{num}')
+# for num in range(1, exercicio_num + 1):
+#     dict_info[f"exec(f'select_exercicio{num}')"] = exec(f'select_exercicio{num}')
+#     dict_info[f"exec(f'qtd_series_exercicio_{num}')"] = exec(f'qtd_series_exercicio_{num}')
 
-    dict_info[f"exec(f'series_exercicio_1_{num}')"] = exec(f'series_exercicio_1_{num}')
-    dict_info[f"exec(f'reps_exercicio_1_{num}')"] = exec(f'reps_exercicio_1_{num}')
-    dict_info[f"exec(f'carga_exercicio_1_{num}')"] = exec(f'carga_exercicio_1_{num}')
+#     dict_info[f"exec(f'series_exercicio_1_{num}')"] = exec(f'series_exercicio_1_{num}')
+#     dict_info[f"exec(f'reps_exercicio_1_{num}')"] = exec(f'reps_exercicio_1_{num}')
+#     dict_info[f"exec(f'carga_exercicio_1_{num}')"] = exec(f'carga_exercicio_1_{num}')
     
-    dict_info[f"exec(f'series_exercicio_2_{num}')"] = exec(f'series_exercicio_2_{num}')
-    dict_info[f"exec(f'reps_exercicio_2_{num}')"] = exec(f'reps_exercicio_2_{num}')
-    dict_info[f"exec(f'carga_exercicio_2_{num}')"] = exec(f'carga_exercicio_2_{num}')
+#     dict_info[f"exec(f'series_exercicio_2_{num}')"] = exec(f'series_exercicio_2_{num}')
+#     dict_info[f"exec(f'reps_exercicio_2_{num}')"] = exec(f'reps_exercicio_2_{num}')
+#     dict_info[f"exec(f'carga_exercicio_2_{num}')"] = exec(f'carga_exercicio_2_{num}')
     
-    dict_info[f"exec(f'series_exercicio_3_{num}')"] = exec(f'series_exercicio_3_{num}')
-    dict_info[f"exec(f'reps_exercicio_3_{num}')"] = exec(f'reps_exercicio_3_{num}')
-    dict_info[f"exec(f'carga_exercicio_3_{num}')"] = exec(f'carga_exercicio_3_{num}')
+#     dict_info[f"exec(f'series_exercicio_3_{num}')"] = exec(f'series_exercicio_3_{num}')
+#     dict_info[f"exec(f'reps_exercicio_3_{num}')"] = exec(f'reps_exercicio_3_{num}')
+#     dict_info[f"exec(f'carga_exercicio_3_{num}')"] = exec(f'carga_exercicio_3_{num}')
     
-    dict_info[f"exec(f'series_exercicio_4_{num}')"] = exec(f'series_exercicio_4_{num}')
-    dict_info[f"exec(f'reps_exercicio_4_{num}')"] = exec(f'reps_exercicio_4_{num}')
-    dict_info[f"exec(f'carga_exercicio_4_{num}')"] = exec(f'carga_exercicio_4_{num}')
+#     dict_info[f"exec(f'series_exercicio_4_{num}')"] = exec(f'series_exercicio_4_{num}')
+#     dict_info[f"exec(f'reps_exercicio_4_{num}')"] = exec(f'reps_exercicio_4_{num}')
+#     dict_info[f"exec(f'carga_exercicio_4_{num}')"] = exec(f'carga_exercicio_4_{num}')
     
-    dict_info[f"exec(f'series_exercicio_5_{num}')"] = exec(f'series_exercicio_5_{num}')
-    dict_info[f"exec(f'reps_exercicio_5_{num}')"] = exec(f'reps_exercicio_5_{num}')
-    dict_info[f"exec(f'carga_exercicio_5_{num}')"] = exec(f'carga_exercicio_5_{num}')
-    lista_dados_coletados.append(dict_info)
+#     dict_info[f"exec(f'series_exercicio_5_{num}')"] = exec(f'series_exercicio_5_{num}')
+#     dict_info[f"exec(f'reps_exercicio_5_{num}')"] = exec(f'reps_exercicio_5_{num}')
+#     dict_info[f"exec(f'carga_exercicio_5_{num}')"] = exec(f'carga_exercicio_5_{num}')
+#     lista_dados_coletados.append(dict_info)
     
 
 botao_salvar = st.button('Salvar')
