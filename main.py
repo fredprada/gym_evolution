@@ -58,11 +58,11 @@ for num in range(1, exercicio_num + 1):
                           f'reps_exercicio_1_{num}',
                           f'carga_exercicio_1_{num}']
     lista_variaveis.append(variaveis_conjunto)
-    lista_variaveis_completa = [[var1, var2, var3, var4, var5] for var1, var2, var3, var4, var5 in zip_longest(lista_variaveis, lista_series_difs, fillvalue="")]
+    lista_variaveis_completa = [var1 + var2 for var1, var2 in zip(lista_variaveis, lista_series_difs)]
 
     st.markdown("""---""")
 
-lista_dados_coletados = [{'var':lista_variaveis}]
+lista_dados_coletados = [{'var':lista_variaveis_completa}]
 dict_info = {}
 # for num in range(1, len(lista_variaveis)):
 #     dict_info[f"exec(f'select_exercicio{num}')"] = exec(f'select_exercicio{num}')
@@ -92,7 +92,7 @@ dict_info = {}
 variaveis_valores = {}
 
 # Percorra todas as variáveis em todas as listas
-for variavel_lista in lista_variaveis:
+for variavel_lista in lista_variaveis_completa:
     for variavel in variavel_lista:
         if isinstance(variavel, str):
             valor = globals().get(variavel, None)
