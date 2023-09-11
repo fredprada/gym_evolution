@@ -48,7 +48,7 @@ for num in range(1, exercicio_num + 1):
     lista_variaveis.append([f'select_exercicio{num}',
                             f'qtd_series_exercicio_{num}',
                             f'series_exercicio_1_{num}',
-                            f'qtd_series_exercicio_{num}',
+                            'qtd_series_exercicio_' + num,
                             # f'series_exercicio_{num}_num_{qtd_series}',
                             f'reps_exercicio_1_{num}',
                             # f'reps_exercicio_{num}_num_{qtd_series}',
