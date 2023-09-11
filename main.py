@@ -44,14 +44,14 @@ for num in range(1, exercicio_num + 1):
     with col4:
         exec(f'carga_exercicio_1_{num} = st.number_input("Carga: ", min_value = 0, max_value = 10000, key = "carga_{num}")')
         exec(f'Serie(qtd_series_exercicio_{num}, {num}).get_cargas()')
-    lista_variaveis.append(['select_exercicio{num}',
-                            'qtd_series_exercicio_{num}',
-                            'series_exercicio_1_{num}',
-                            'Serie(qtd_series_exercicio_{num}',
-                            'reps_exercicio_1_{num}',
-                            'Serie(qtd_series_exercicio_{num}',
-                            'carga_exercicio_1_{num}',
-                            'Serie(qtd_series_exercicio_{num}'])
+    lista_variaveis.append([f'select_exercicio{num}',
+                            f'qtd_series_exercicio_{num}',
+                            f'series_exercicio_1_{num}',
+                            f'Serie(qtd_series_exercicio_{num}',
+                            f'reps_exercicio_1_{num}',
+                            f'Serie(qtd_series_exercicio_{num}',
+                            f'carga_exercicio_1_{num}',
+                            f'Serie(qtd_series_exercicio_{num}'])
     st.markdown("""---""")
 
 
