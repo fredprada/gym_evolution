@@ -93,11 +93,13 @@ dict_info = {}
 #     dict_info[f"exec(f'carga_exercicio_5_{num}')"] = exec(f'carga_exercicio_5_{num}')
 #     lista_dados_coletados.append(dict_info)
 
+lista_variaveis_valores = []
 variaveis_valores = {}
 
 # Percorra a lista de variáveis e adicione-as ao dicionário com seus valores
 for variavel in flat_lista_variaveis_completa:
     variaveis_valores['{variavel}'] = variavel
+    lista_variaveis_valores.append(variaveis_valores)
 
 botao_salvar = st.button('Salvar')
 botao_ver_dados = st.button('Ver tabela com dados do banco')
