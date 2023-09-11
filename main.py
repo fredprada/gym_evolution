@@ -88,14 +88,19 @@ dict_info = {}
 #     dict_info[f"exec(f'carga_exercicio_5_{num}')"] = exec(f'carga_exercicio_5_{num}')
 #     lista_dados_coletados.append(dict_info)
 
-variaveis_valores = {}
+# Função recursiva para aplanar listas aninhadas
+def aplanar_lista(lista):
+    resultado = {}
+    for elemento in lista:
+        if isinstance(elemento, list):
+            resultado.update(aplanar_lista(elemento))
+        elif elemento in retorno:
+            resultado[elemento] = retorno[elemento]
+    return resultado
 
-for variavel_lista in lista_variaveis:
-    for variavel in variavel_lista:
-        if isinstance(variavel, str):
-            valor = globals().get(variavel, None)
-            if isinstance(valor, (int, str)):
-                variaveis_valores[variavel] = valor
+# Crie um dicionário de variáveis a partir da lista
+variaveis_valores = aplanar_lista(lista_variaveis)
+
 
 botao_salvar = st.button('Salvar')
 botao_ver_dados = st.button('Ver tabela com dados do banco')
