@@ -6,6 +6,7 @@ from serie import Serie
 from salvar_dados import salvar_dados_mongodb
 from pymongo import MongoClient
 import os
+from itertools import zip_longest
 
 st.set_page_config(page_title = "Evolução academia", page_icon = "💪")
 
@@ -57,7 +58,8 @@ for num in range(1, exercicio_num + 1):
                           f'reps_exercicio_1_{num}',
                           f'carga_exercicio_1_{num}']
     lista_variaveis.append(variaveis_conjunto)
-    lista_variaveis_completa = lista_variaveis + lista_series_difs
+    lista_variaveis_completa = [[var1, var2, var3, var4, var5] for var1, var2, var3, var4, var5 in zip_longest(lista_variaveis, lista_series_difs, fillvalue="")]
+
     st.markdown("""---""")
 
 lista_dados_coletados = [{'var':lista_variaveis}]
