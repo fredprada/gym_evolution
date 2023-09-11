@@ -95,12 +95,11 @@ dict_info = {}
 
 lista_variaveis_valores = []
 
-for lista_variavel in flat_lista_variaveis_completa:
+for variavel in flat_lista_variaveis_completa:
     variaveis_valores = {}  # Crie um novo dicionário para cada iteração
-    for variavel in lista_variavel:
-        valor = globals().get(variavel, None)
-        if isinstance(valor, (int, str)):
-            variaveis_valores[variavel] = valor
+    valor = globals().get(variavel, None)
+    if isinstance(valor, (int, str)):
+        variaveis_valores[variavel] = valor
     lista_variaveis_valores.append(variaveis_valores)
 
 botao_salvar = st.button('Salvar')
