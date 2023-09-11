@@ -1,5 +1,6 @@
 import os
 import streamlit as st
+import pymongo
 from pymongo import MongoClient
 import pandas as pd
 
@@ -7,7 +8,7 @@ class SalvarDados:
     def __init__(self, tabela_para_salvar):
         self.tabela_para_salvar = tabela_para_salvar
 
-    def connect_to_mongodb():
+    def connect_to_mongodb(self):
         global collection
         client = os.getenv('CLIENT_TOKEN')
         myclient = MongoClient(client)
