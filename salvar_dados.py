@@ -1,6 +1,6 @@
+from pymongo import MongoClient
 import os
 import streamlit as st
-from pymongo import MongoClient
 import pandas as pd
 
 class SalvarDados:
