@@ -50,16 +50,15 @@ for num in range(1, exercicio_num + 1):
         var_series_dif = [f'series_exercicio_{num}_num_{qtd}',
                           f'reps_exercicio_{num}_num_{qtd}',
                           f'carga_exercicio_{num}_num_{qtd}']
-        lista_series_difs = lista_series_difs + var_series_dif
+        lista_series_difs.append(var_series_dif)
     variaveis_conjunto = [f'select_exercicio{num}',
                           f'qtd_series_exercicio_{num}',
                           f'series_exercicio_1_{num}',
                           f'reps_exercicio_1_{num}',
                           f'carga_exercicio_1_{num}']
-    # lista_variaveis.append(variaveis_conjunto)
-    lista_variaveis = lista_variaveis + variaveis_conjunto
-    lista_variaveis_completa = lista_variaveis + lista_series_difs
+    lista_variaveis.append(variaveis_conjunto)
     st.markdown("""---""")
+lista_variaveis_completa = lista_variaveis + lista_series_difs
 
 lista_dados_coletados = [{'var':lista_variaveis}]
 dict_info = {}
