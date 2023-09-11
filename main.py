@@ -89,12 +89,14 @@ dict_info = {}
 
 variaveis_valores = {}
 
-for variavel_lista in lista_variaveis_completa:
+# Percorra todas as variáveis em todas as listas
+for variavel_lista in lista_variaveis:
     for variavel in variavel_lista:
         if isinstance(variavel, str):
             valor = globals().get(variavel, None)
             if isinstance(valor, (int, str)):
                 variaveis_valores[variavel] = valor
+
 
 botao_salvar = st.button('Salvar')
 botao_ver_dados = st.button('Ver tabela com dados do banco')
