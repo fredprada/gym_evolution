@@ -1,4 +1,8 @@
-streamlit
 pymongo
+streamlit
 pandas
+matplotlib
+plotly
+seaborn
+numpy
 datetime
