@@ -6,6 +6,7 @@ from serie import Serie
 from salvar_dados import salvar_dados_mongodb
 from pymongo import MongoClient
 import os
+import itertools
 
 st.set_page_config(page_title = "Evolução academia", page_icon = "💪")
 
@@ -60,6 +61,11 @@ for num in range(1, exercicio_num + 1):
     st.markdown("""---""")
 lista_variaveis_completa = lista_variaveis + lista_series_difs
 
+def flatten_list(nested_list):
+    return list(itertools.chain(*nested_list))
+
+flat_lista_variaveis_completa = flatten_list(lista_variaveis_completa)
+
 lista_dados_coletados = [{'var':lista_variaveis}]
 dict_info = {}
 # for num in range(1, len(lista_variaveis)):
@@ -90,7 +96,7 @@ dict_info = {}
 variaveis_valores = {}
 
 # Percorra todas as variáveis em todas as listas
-for variavel_lista in lista_variaveis:
+for variavel_lista in flat_lista_variaveis_completa:
     for variavel in variavel_lista:
         if isinstance(variavel, str):
             valor = globals().get(variavel, None)
@@ -108,5 +114,5 @@ if botao_salvar:
 if botao_ver_dados:
     # ETL list_to_add = func_add_row(date_of_the_game,time_played,pai,played_alone,time_of_the_game,enthusiasm_before_playing,rating,listened_to_music,rest_time,feeling_before_game,calorias)
     # salvar_dados_mongodb(lista_dados_coletados).retrieve_data_from_mongodb()
-    st.sidebar.text(lista_variaveis_completa)
+    st.sidebar.text(flat_lista_variaveis_completa)
     st.sidebar.text(variaveis_valores)
