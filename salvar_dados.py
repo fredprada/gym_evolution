@@ -22,7 +22,7 @@ class salvar_dados_mongodb:
         st.sidebar.text('Dados salvos!')
 
     def retrieve_data_from_mongodb(self):
-        collection = self.connect_to_mongodb()
+        self.connect_to_mongodb()
         data_list = []
         data_list = [x for x in collection.find()]
         df_data_list = pd.DataFrame(data_list)
