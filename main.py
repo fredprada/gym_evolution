@@ -88,18 +88,19 @@ dict_info = {}
 #     dict_info[f"exec(f'carga_exercicio_5_{num}')"] = exec(f'carga_exercicio_5_{num}')
 #     lista_dados_coletados.append(dict_info)
 
-# Função recursiva para aplanar listas aninhadas
-def aplanar_lista(lista):
-    resultado = {}
+# Função recursiva para aplanar listas aninhadas e encontrar valores
+def aplanar_lista_e_encontrar_valores(lista, dicionario_retorno):
     for elemento in lista:
         if isinstance(elemento, list):
-            resultado.update(aplanar_lista(elemento))
-        elif elemento in retorno:
-            resultado[elemento] = retorno[elemento]
-    return resultado
+            aplanar_lista_e_encontrar_valores(elemento, dicionario_retorno)
+        elif elemento in dicionario_retorno:
+            dicionario_retorno[elemento] = dicionario_retorno[elemento]
 
-# Crie um dicionário de variáveis a partir da lista
-variaveis_valores = aplanar_lista(lista_variaveis)
+# Crie um dicionário vazio para armazenar os valores das variáveis
+variaveis_valores = {}
+
+# Chame a função para encontrar os valores
+aplanar_lista_e_encontrar_valores(lista_variaveis, variaveis_valores)
 
 
 botao_salvar = st.button('Salvar')
