@@ -94,12 +94,13 @@ dict_info = {}
 #     lista_dados_coletados.append(dict_info)
 
 lista_variaveis_valores = []
-variaveis_valores = {}
 
-# Percorra a lista de variáveis e adicione-as ao dicionário com seus valores
-for variavel in flat_lista_variaveis_completa:
-    valor = globals().get(variavel, None)
-    variaveis_valores[f'{variavel}'] = valor
+for lista_variavel in flat_lista_variaveis_completa:
+    variaveis_valores = {}  # Crie um novo dicionário para cada iteração
+    for variavel in lista_variavel:
+        valor = globals().get(variavel, None)
+        if isinstance(valor, (int, str)):
+            variaveis_valores[variavel] = valor
     lista_variaveis_valores.append(variaveis_valores)
 
 botao_salvar = st.button('Salvar')
