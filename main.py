@@ -48,7 +48,7 @@ for num in range(1, exercicio_num + 1):
     lista_variaveis.append([f'select_exercicio{num}',
                             f'qtd_series_exercicio_{num}',
                             f'series_exercicio_1_{num}',
-                            'qtd_series_exercicio_' + num,
+                            st.selectbox("Número de séries diferentes:", ([1, 2, 3, 4, 5]), key = exec(f"series_dif_{num}")),
                             # f'series_exercicio_{num}_num_{qtd_series}',
                             f'reps_exercicio_1_{num}',
                             # f'reps_exercicio_{num}_num_{qtd_series}',
