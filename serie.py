@@ -7,12 +7,9 @@ class Serie:
 
     def get_series(self):
         lista_box_series = []
-        lista_var_names = []
         for item in range(2, self.qtd_series + 1):
             lista_box_series.append(exec(f'series_exercicio_{self.serie_num}_num_{item} = st.number_input("Séries: ", min_value = 0, max_value = 10, key="serie_{self.serie_num}_{item}")'))
-            var_name = f'series_exercicio_{self.serie_num}_num_{item}'
-            lista_var_names.append(var_name)
-        return [lista_box_series, lista_var_names]
+        return lista_box_series
 
     def get_reps(self):
         lista_box_reps = []

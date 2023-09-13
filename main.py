@@ -33,6 +33,24 @@ lista_variaveis = []
 lista_series_difs = []
 lista_nomes = []
 
+def get_series(qtd_series, serie_num):
+    lista_box_series = []
+    for item in range(2, qtd_series + 1):
+        lista_box_series.append(exec(f'series_exercicio_{serie_num}_num_{item} = st.number_input("Séries: ", min_value = 0, max_value = 10, key="serie_{serie_num}_{item}")'))
+    return lista_box_series
+
+# def get_reps(self):
+#     lista_box_reps = []
+#     for item in range(2, self.qtd_series + 1):
+#         lista_box_reps.append(exec(f'reps_exercicio_{self.serie_num}_num_{item} = st.number_input("Núm Reps: ", min_value = 0, max_value = 50, key="reps_{self.serie_num}_{item}")'))
+#     return lista_box_reps
+
+# def get_cargas(self):
+#     lista_box_carga = []
+#     for item in range(2, self.qtd_series + 1):
+#         lista_box_carga.append(exec(f'carga_exercicio_{self.serie_num}_num_{item} = st.number_input("Carga: ", min_value = 0, max_value = 1000, key="carga_{self.serie_num}_{item}")'))
+#     return lista_box_carga
+
 for num in range(1, exercicio_num + 1):
     col1, col2, col3, col4 = st.columns([3,1,1,1])
     with col1:
@@ -40,7 +58,7 @@ for num in range(1, exercicio_num + 1):
         exec(f'qtd_series_exercicio_{num} = st.selectbox("Número de séries diferentes:", ([1, 2, 3, 4, 5]), key = "series_dif_{num}")')
     with col2:
         exec(f'series_exercicio_1_{num} = st.number_input("Séries: ", min_value = 0, max_value = 10, key = "serie_{num}")')
-        exec(f'Serie(qtd_series_exercicio_{num}, {num}).get_series()')[0]
+        get_series(f'qtd_series_exercicio_{num}, {num}')
     with col3:
         exec(f'reps_exercicio_1_{num} = st.number_input("Núm Reps: ", min_value = 0, max_value = 50, key = "reps_{num}")')
         exec(f'Serie(qtd_series_exercicio_{num}, {num}).get_reps()')
@@ -62,7 +80,6 @@ for num in range(1, exercicio_num + 1):
                           f'carga_exercicio_1_{num}']
     lista_variaveis.append(variaveis_conjunto)
     st.markdown("""---""")
-    lista_nomes.append(exec(f'Serie(qtd_series_exercicio_{num}, {num}).get_series()')[1])
 
 lista_variaveis_completa = lista_variaveis + lista_series_difs
 
@@ -120,4 +137,3 @@ if botao_ver_dados:
     # st.sidebar.text(flat_lista_variaveis_completa)
     st.sidebar.text(lista_variaveis_completa)
     st.sidebar.text(lista_variaveis_valores)
-    st.sidebar.table(lista_nomes)
