@@ -48,7 +48,7 @@ for num in range(1, exercicio_num + 1):
        
     exec(f'qtd_series = qtd_series_exercicio_{num}')
     lista_series_difs = []
-    for qtd in range(0, qtd_series + 1):
+    for qtd in range(1, qtd_series + 1):
         var_series_dif = [f'series_exercicio_{qtd}_num_{num}',
                           f'reps_exercicio_{qtd}_num_{num}',
                           f'carga_exercicio_{qtd}_num_{num}']
