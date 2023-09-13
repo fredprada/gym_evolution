@@ -30,6 +30,7 @@ st.markdown("""---""")
 
 lista_exercicio = Exercicio(treino_selecionado).get_exercicio()
 lista_variaveis = []
+lista_series_difs = []
 
 for num in range(1, exercicio_num + 1):
     col1, col2, col3, col4 = st.columns([3,1,1,1])
@@ -47,7 +48,7 @@ for num in range(1, exercicio_num + 1):
         exec(f'Serie(qtd_series_exercicio_{num}, {num}).get_cargas()')
        
     exec(f'qtd_series = qtd_series_exercicio_{num}')
-    lista_series_difs = []
+    
     for qtd in range(1, qtd_series + 1):
         var_series_dif = [f'series_exercicio_{qtd}_num_{num}',
                           f'reps_exercicio_{qtd}_num_{num}',
