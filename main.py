@@ -38,20 +38,24 @@ for num in range(1, exercicio_num + 1):
         exec(f'qtd_series_exercicio_{num} = st.selectbox("Número de séries diferentes:", ([1, 2, 3, 4, 5]), key = "series_dif_{num}")')
     with col2:
         exec(f'series_exercicio_1_{num} = st.number_input("Séries: ", min_value = 0, max_value = 10, key = "serie_{num}")')
-        exec(f'Serie(qtd_series_exercicio_{num}, {num}).get_series()')
+        lista_series_diferentes = exec(f'Serie(qtd_series_exercicio_{num}, {num}).get_series()')
+        lista_series_diferentes
     with col3:
         exec(f'reps_exercicio_1_{num} = st.number_input("Núm Reps: ", min_value = 0, max_value = 50, key = "reps_{num}")')
-        exec(f'Serie(qtd_series_exercicio_{num}, {num}).get_reps()')
+        lista_reps_diferentes = exec(f'Serie(qtd_series_exercicio_{num}, {num}).get_reps()')
+        lista_reps_diferentes
     with col4:
         exec(f'carga_exercicio_1_{num} = st.number_input("Carga: ", min_value = 0, max_value = 10000, key = "carga_{num}")')
-        exec(f'Serie(qtd_series_exercicio_{num}, {num}).get_cargas()')
+        lista_cargas_diferentes = exec(f'Serie(qtd_series_exercicio_{num}, {num}).get_cargas()')
+        lista_cargas_diferentes
     exec(f'qtd_series = qtd_series_exercicio_{num}')
-    lista_series_difs = []
-    for qtd in range(1, qtd_series + 1):
-        var_series_dif = [f'series_exercicio_{qtd}_num_{num}',
-                          f'reps_exercicio_{qtd}_num_{num}',
-                          f'carga_exercicio_{qtd}_num_{num}']
-        lista_series_difs.append(var_series_dif)
+    lista_series_difs = [lista_series_diferentes + lista_reps_diferentes + lista_cargas_diferentes]
+    # lista_series_difs = []
+    # for qtd in range(1, qtd_series + 1):
+        # var_series_dif = [f'series_exercicio_{qtd}_num_{num}',
+        #                   f'reps_exercicio_{qtd}_num_{num}',
+        #                   f'carga_exercicio_{qtd}_num_{num}']
+        # lista_series_difs.append(var_series_dif)
     variaveis_conjunto = [f'select_exercicio{num}',
                           f'qtd_series_exercicio_{num}',
                           f'series_exercicio_1_{num}',
