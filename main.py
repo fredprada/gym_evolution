@@ -128,17 +128,15 @@ flat_lista_variaveis_completa = flatten_list(lista_variaveis_completa)
 
 lista_var_ajustadas = []
 lista_qtds=[]
-for tamanho in range(len(lista_variaveis)):
-    qtd_series = int(lista_variaveis[tamanho][0][-7])
+for tamanho in range(len(lista_var_multip)):
+    qtd_series = int(lista_var_multip[tamanho][0][-7])
     lista_qtds.append(qtd_series)
 
-for tamanho in range(len(lista_variaveis)):
+for tamanho in range(len(lista_var_multip)):
     for item in range(1, lista_qtds[tamanho] + 1):
         lista_var_ajustadas.append([f'series_exercicio_{item}_num_{tamanho + 1}',
                                     f'reps_exercicio_{item}_num_{tamanho + 1}',
                                     f'carga_exercicio_{item}_num_{tamanho + 1}'])
-
-lista_var_completa = lista_var_1 + lista_var_ajustadas
 
 lista_variaveis_valores = []
 
