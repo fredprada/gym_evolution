@@ -68,3 +68,5 @@ if botao_salvar:
 
 if botao_ver_dados:
     st.sidebar.text(valores)
+    st.sidebar.table(valores)
+    st.sidebar.dataframe(valores)
