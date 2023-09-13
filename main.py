@@ -145,8 +145,7 @@ for item in range(len(lista_var_ajustadas)):
         
 lista_variaveis_valores = []
 for item in range(len(lista_nomes_vars)):
-    variaveis_valores = {} 
-    valor = globals().get(item, None)
+    valor = globals().get(item)
     lista_variaveis_valores.append(valor)
 
 # for variavel in lista_var_completa:
