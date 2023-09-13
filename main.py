@@ -40,7 +40,7 @@ for num in range(1, exercicio_num + 1):
         exec(f'qtd_series_exercicio_{num} = st.selectbox("Número de séries diferentes:", ([1, 2, 3, 4, 5]), key = "series_dif_{num}")')
     with col2:
         exec(f'series_exercicio_1_{num} = st.number_input("Séries: ", min_value = 0, max_value = 10, key = "serie_{num}")')
-        exec(f'Serie(qtd_series_exercicio_{num}, {num}).get_series()[0]')
+        exec(f'Serie(qtd_series_exercicio_{num}, {num}).get_series()')[0]
     with col3:
         exec(f'reps_exercicio_1_{num} = st.number_input("Núm Reps: ", min_value = 0, max_value = 50, key = "reps_{num}")')
         exec(f'Serie(qtd_series_exercicio_{num}, {num}).get_reps()')
@@ -62,7 +62,7 @@ for num in range(1, exercicio_num + 1):
                           f'carga_exercicio_1_{num}']
     lista_variaveis.append(variaveis_conjunto)
     st.markdown("""---""")
-    lista_nomes.append(exec(f'Serie(qtd_series_exercicio_{num}, {num}).get_all_names()'))
+    lista_nomes.append(exec(f'Serie(qtd_series_exercicio_{num}, {num}).get_series()')[1])
 
 lista_variaveis_completa = lista_variaveis + lista_series_difs
 
@@ -120,4 +120,4 @@ if botao_ver_dados:
     # st.sidebar.text(flat_lista_variaveis_completa)
     st.sidebar.text(lista_variaveis_completa)
     st.sidebar.text(lista_variaveis_valores)
-    st.sidebar.text(lista_nomes)
+    st.sidebar.table(lista_nomes)

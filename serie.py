@@ -7,11 +7,12 @@ class Serie:
 
     def get_series(self):
         lista_box_series = []
-        lista_nomes = []
+        lista_var_names = []
         for item in range(2, self.qtd_series + 1):
             lista_box_series.append(exec(f'series_exercicio_{self.serie_num}_num_{item} = st.number_input("Séries: ", min_value = 0, max_value = 10, key="serie_{self.serie_num}_{item}")'))
-            lista_nomes.append(f"{exec(f'series_exercicio_{self.serie_num}_num_{item}')}")
-        return [lista_box_series, lista_nomes]
+            var_name = f'series_exercicio_{self.serie_num}_num_{item}'
+            lista_var_names.append(var_name)
+        return [lista_box_series, lista_var_names]
 
     def get_reps(self):
         lista_box_reps = []
@@ -24,8 +25,3 @@ class Serie:
         for item in range(2, self.qtd_series + 1):
             lista_box_carga.append(exec(f'carga_exercicio_{self.serie_num}_num_{item} = st.number_input("Carga: ", min_value = 0, max_value = 1000, key="carga_{self.serie_num}_{item}")'))
         return lista_box_carga
-    
-    def get_all_names(self):
-        lista_geral = []
-        lista_geral = self.get_series()[1]
-        return lista_geral
