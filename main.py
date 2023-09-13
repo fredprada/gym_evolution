@@ -45,21 +45,34 @@ for num in range(1, exercicio_num + 1):
     with col4:
         exec(f'carga_exercicio_1_{num} = st.number_input("Carga: ", min_value = 0, max_value = 10000, key = "carga_{num}")')
         exec(f'Serie(qtd_series_exercicio_{num}, {num}).get_cargas()')
-    exec(f'qtd_series = qtd_series_exercicio_{num}')
+    
+    # Armazene as informações das séries em uma lista
     lista_series_difs = []
-    for qtd in range(1, exec(f'qtd_series_exercicio_{num}') + 1):
-        var_series_dif = [f'series_exercicio_{qtd}_num_{num}',
-                          f'reps_exercicio_{qtd}_num_{num}',
-                          f'carga_exercicio_{qtd}_num_{num}']
-        lista_series_difs.append(var_series_dif)
-    variaveis_conjunto = [f'select_exercicio{num}',
-                          f'qtd_series_exercicio_{num}',
-                          f'series_exercicio_1_{num}',
-                          f'reps_exercicio_1_{num}',
-                          f'carga_exercicio_1_{num}']
-    lista_variaveis.append(variaveis_conjunto)
+    series_info = []
+    for qtd in range(1, qtd_series_exercicio_{num} + 1):
+        series_exercicio = st.number_input(f"Séries {qtd}: ", min_value=0, max_value=10, key=f"serie_{num}_{qtd}")
+        reps_exercicio = st.number_input(f"Núm Reps {qtd}: ", min_value=0, max_value=50, key=f"reps_{num}_{qtd}")
+        carga_exercicio = st.number_input(f"Carga {qtd}: ", min_value=0, max_value=10000, key=f"carga_{num}_{qtd}")
+        series_info.append((series_exercicio, reps_exercicio, carga_exercicio))
+    
+    lista_series_difs.append(series_info)
+    
+    # exec(f'qtd_series = qtd_series_exercicio_{num}')
+    # lista_series_difs = []
+    # for qtd in range(1, qtd_series + 1):
+    #     var_series_dif = [f'series_exercicio_{qtd}_num_{num}',
+    #                       f'reps_exercicio_{qtd}_num_{num}',
+    #                       f'carga_exercicio_{qtd}_num_{num}']
+    #     lista_series_difs.append(var_series_dif)
+    # variaveis_conjunto = [f'select_exercicio{num}',
+    #                       f'qtd_series_exercicio_{num}',
+    #                       f'series_exercicio_1_{num}',
+    #                       f'reps_exercicio_1_{num}',
+    #                       f'carga_exercicio_1_{num}']
+    # lista_variaveis.append(variaveis_conjunto)
     st.markdown("""---""")
-lista_variaveis_completa = lista_variaveis + lista_series_difs
+lista_variaveis_completa = lista_series_difs
+# lista_variaveis_completa = lista_variaveis + lista_series_difs
 
 def flatten_list(nested_list):
     return list(itertools.chain(*nested_list))
