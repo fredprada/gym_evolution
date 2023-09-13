@@ -97,12 +97,12 @@ lista_variaveis_completa = lista_variaveis + lista_series_difs
 
 # lista_variaveis_valores = []
 
-for variavel in flat_lista_variaveis_completa:
-    variaveis_valores = {}  # Crie um novo dicionário para cada iteração
-    valor = globals().get(variavel, None)
-    if isinstance(valor, (int, str)):
-        variaveis_valores[variavel] = valor
-    lista_variaveis_valores.append(variaveis_valores)
+# for variavel in flat_lista_variaveis_completa:
+#     variaveis_valores = {}  # Crie um novo dicionário para cada iteração
+#     valor = globals().get(variavel, None)
+#     if isinstance(valor, (int, str)):
+#         variaveis_valores[variavel] = valor
+#     lista_variaveis_valores.append(variaveis_valores)
 
 botao_salvar = st.button('Salvar')
 botao_ver_dados = st.button('Ver tabela com dados do banco')
