@@ -50,7 +50,8 @@ def get_series(qtd_series, serie_num):
 #     for item in range(2, self.qtd_series + 1):
 #         lista_box_carga.append(exec(f'carga_exercicio_{self.serie_num}_num_{item} = st.number_input("Carga: ", min_value = 0, max_value = 1000, key="carga_{self.serie_num}_{item}")'))
 #     return lista_box_carga
-
+lista_var_1 = []
+lista_var_multip = []
 for num in range(1, exercicio_num + 1):
     col1, col2, col3, col4 = st.columns([3,1,1,1])
     with col1:
@@ -68,6 +69,15 @@ for num in range(1, exercicio_num + 1):
        
     exec(f'qtd_series = qtd_series_exercicio_{num}')
     
+    lista_var_1.append([f'select_exercicio{num}',
+                    f'qtd_series_exercicio_{num}',
+                    f'series_exercicio_1_{num}',
+                    f'reps_exercicio_1_{num}',
+                    f'carga_exercicio_1_{num}'])
+    lista_var_multip.append([f'series_exercicio_{qtd_series}_num_{num}',
+                             f'reps_exercicio_{qtd_series}_num_{num}',
+                             f'carga_exercicio_{qtd_series}_num_{num}'])
+
     for qtd in range(1, qtd_series + 1):
         var_series_dif = [f'series_exercicio_{qtd}_num_{num}',
                           f'reps_exercicio_{qtd}_num_{num}',
@@ -137,3 +147,5 @@ if botao_ver_dados:
     # st.sidebar.text(flat_lista_variaveis_completa)
     st.sidebar.text(lista_variaveis_completa)
     st.sidebar.text(lista_variaveis_valores)
+    st.sidebar.text(lista_var_1)
+    st.sidebar.text(lista_var_multip)
