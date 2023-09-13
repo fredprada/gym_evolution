@@ -142,12 +142,12 @@ lista_var_completa = lista_var_1 + lista_var_ajustadas
 
 lista_variaveis_valores = []
 
-for item in range(len(lista_var_completa)):
-    for value in range(len(lista_var_completa[item])):
+for item in range(len(lista_var_ajustadas)):
+    for value in range(len(lista_var_ajustadas[item])):
         variaveis_valores = {} 
-        valor = globals().get(lista_var_completa[item][value], None)
+        valor = globals().get(lista_var_ajustadas[item][value], None)
         if isinstance(valor, (int, str)):
-            variaveis_valores[lista_var_completa[item][value]] = valor
+            variaveis_valores[lista_var_ajustadas[item][value]] = valor
         lista_variaveis_valores.append(variaveis_valores)
 
 # for variavel in lista_var_completa:
