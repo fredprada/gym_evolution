@@ -35,7 +35,7 @@ lista_series_difs = []
 for num in range(1, exercicio_num + 1):
     col1, col2, col3, col4 = st.columns([3,1,1,1])
     with col1:
-        exec(f'select_exercicio = st.selectbox("Exercício ({num}): ", (lista_exercicio))')
+        exec(f'select_exercicio{num} = st.selectbox("Exercício ({num}): ", (lista_exercicio))')
         exec(f'qtd_series_exercicio_{num} = st.selectbox("Número de séries diferentes:", ([1, 2, 3, 4, 5]), key = "series_dif_{num}")')
     with col2:
         exec(f'series_exercicio_1_{num} = st.number_input("Séries: ", min_value = 0, max_value = 10, key = "serie_{num}")')
@@ -52,7 +52,8 @@ for num in range(1, exercicio_num + 1):
     for qtd in range(1, qtd_series + 1):
         var_series_dif = [f'series_exercicio_{qtd}_num_{num}',
                           f'reps_exercicio_{qtd}_num_{num}',
-                          f'carga_exercicio_{qtd}_num_{num}']
+                          f'carga_exercicio_{qtd}_num_{num}',
+                          exec(f'Serie(qtd_series_exercicio_{num}, {num}).get_series()')]
         lista_series_difs.append(var_series_dif)
     variaveis_conjunto = [f'select_exercicio{num}',
                           f'qtd_series_exercicio_{num}',
