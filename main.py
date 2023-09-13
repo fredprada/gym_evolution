@@ -34,22 +34,22 @@ lista_variaveis = []
 for num in range(1, exercicio_num + 1):
     col1, col2, col3, col4 = st.columns([3,1,1,1])
     with col1:
-        exec(f'select_exercicio{num} = st.selectbox("Exercício ({num}): ", (lista_exercicio))')
-        exec(f'qtd_series_exercicio_{num} = st.selectbox("Número de séries diferentes:", ([1, 2, 3, 4, 5]), key = "series_dif_{num}")')
+        select_exercicio = st.selectbox("Exercício ({num}): ", (lista_exercicio))
+        qtd_series_exercicio = st.selectbox("Número de séries diferentes:", ([1, 2, 3, 4, 5]), key = f"series_dif_{num}")
     with col2:
-        exec(f'series_exercicio_1_{num} = st.number_input("Séries: ", min_value = 0, max_value = 10, key = "serie_{num}")')
-        exec(f'Serie(qtd_series_exercicio_{num}, {num}).get_series()')
+        series_exercicio_1 = st.number_input("Séries: ", min_value = 0, max_value = 10, key = f"serie_{num}")
+        Serie(qtd_series_exercicio, {num}).get_series()
     with col3:
-        exec(f'reps_exercicio_1_{num} = st.number_input("Núm Reps: ", min_value = 0, max_value = 50, key = "reps_{num}")')
-        exec(f'Serie(qtd_series_exercicio_{num}, {num}).get_reps()')
+        reps_exercicio_1 = st.number_input("Núm Reps: ", min_value = 0, max_value = 50, key = f"reps_{num}")
+        Serie(qtd_series_exercicio, {num}).get_reps()
     with col4:
-        exec(f'carga_exercicio_1_{num} = st.number_input("Carga: ", min_value = 0, max_value = 10000, key = "carga_{num}")')
-        exec(f'Serie(qtd_series_exercicio_{num}, {num}).get_cargas()')
+        carga_exercicio_1 = st.number_input("Carga: ", min_value = 0, max_value = 10000, key = f"carga_{num}")
+        Serie(qtd_series_exercicio, {num}).get_cargas()
     
     # Armazene as informações das séries em uma lista
     lista_series_difs = []
     series_info = []
-    for qtd in range(1, qtd_series_exercicio_{num} + 1):
+    for qtd in range(1, qtd_series_exercicio + 1):
         series_exercicio = st.number_input(f"Séries {qtd}: ", min_value=0, max_value=10, key=f"serie_{num}_{qtd}")
         reps_exercicio = st.number_input(f"Núm Reps {qtd}: ", min_value=0, max_value=50, key=f"reps_{num}_{qtd}")
         carga_exercicio = st.number_input(f"Carga {qtd}: ", min_value=0, max_value=10000, key=f"carga_{num}_{qtd}")
