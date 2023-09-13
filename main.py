@@ -34,7 +34,7 @@ valores = {}
 
 valores['atleta'] = atleta
 valores['treino'] = treino_selecionado
-valores['data'] = data
+valores['data'] = str(data)
 
 for num in range(1, exercicio_num + 1):
     col1, col2, col3, col4 = st.columns([3, 1, 1, 1])
