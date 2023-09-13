@@ -66,10 +66,10 @@ lista_variaveis_completa = lista_variaveis + lista_series_difs
 #     return list(itertools.chain(*nested_list))
 
 # flat_lista_variaveis_completa = flatten_list(lista_variaveis_completa)
-flat_lista_variaveis_completa = lista_variaveis_completa
+# flat_lista_variaveis_completa = lista_variaveis_completa
 
-lista_dados_coletados = [{'var':lista_variaveis}]
-dict_info = {}
+# lista_dados_coletados = [{'var':lista_variaveis}]
+# dict_info = {}
 # for num in range(1, len(lista_variaveis)):
 #     dict_info[f"exec(f'select_exercicio{num}')"] = exec(f'select_exercicio{num}')
 #     dict_info[f"exec(f'qtd_series_exercicio_{num}')"] = exec(f'qtd_series_exercicio_{num}')
@@ -95,24 +95,24 @@ dict_info = {}
 #     dict_info[f"exec(f'carga_exercicio_5_{num}')"] = exec(f'carga_exercicio_5_{num}')
 #     lista_dados_coletados.append(dict_info)
 
-lista_variaveis_valores = []
+# lista_variaveis_valores = []
 
-for variavel in flat_lista_variaveis_completa:
-    variaveis_valores = {}  # Crie um novo dicionário para cada iteração
-    valor = globals().get(variavel, None)
-    if isinstance(valor, (int, str)):
-        variaveis_valores[variavel] = valor
-    lista_variaveis_valores.append(variaveis_valores)
+# for variavel in flat_lista_variaveis_completa:
+#     variaveis_valores = {}  # Crie um novo dicionário para cada iteração
+#     valor = globals().get(variavel, None)
+#     if isinstance(valor, (int, str)):
+#         variaveis_valores[variavel] = valor
+#     lista_variaveis_valores.append(variaveis_valores)
 
 botao_salvar = st.button('Salvar')
 botao_ver_dados = st.button('Ver tabela com dados do banco')
 
 if botao_salvar:
     # ETL list_to_add = func_add_row(date_of_the_game,time_played,pai,played_alone,time_of_the_game,enthusiasm_before_playing,rating,listened_to_music,rest_time,feeling_before_game,calorias)
-    salvar_dados_mongodb(lista_dados_coletados).database_insertion()
+    salvar_dados_mongodb(lista_variaveis_completa).database_insertion()
 
 if botao_ver_dados:
     # ETL list_to_add = func_add_row(date_of_the_game,time_played,pai,played_alone,time_of_the_game,enthusiasm_before_playing,rating,listened_to_music,rest_time,feeling_before_game,calorias)
     # salvar_dados_mongodb(lista_dados_coletados).retrieve_data_from_mongodb()
-    st.sidebar.text(flat_lista_variaveis_completa)
-    st.sidebar.text(lista_variaveis_valores)
+    # st.sidebar.text(flat_lista_variaveis_completa)
+    st.sidebar.text(lista_variaveis_completa)
