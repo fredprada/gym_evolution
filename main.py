@@ -95,7 +95,7 @@ flat_lista_variaveis_completa = flatten_list(lista_variaveis_completa)
 #     dict_info[f"exec(f'carga_exercicio_5_{num}')"] = exec(f'carga_exercicio_5_{num}')
 #     lista_dados_coletados.append(dict_info)
 
-lista_variaveis_valores = []lista_variaveis_completa
+lista_variaveis_valores = []
 
 for variavel in flat_lista_variaveis_completa:
     variaveis_valores = {}  # Crie um novo dicionário para cada iteração
