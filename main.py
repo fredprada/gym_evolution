@@ -14,13 +14,13 @@ hora_atual = datetime.datetime.now() - timedelta(hours=3)
 lista_treinos = ['1- PEITO | OMBRO | TRÍCEPS', 
                  '2- COSTAS | BÍCEPS',
                  '3- PERNA']
-lista_marombas = ['Fred','Mari']
+lista_atletas = ['Fred','Mari']
 
 col1, col2, col3, col4 = st.columns([2, 1, 1, 1])
 with col1:
     treino_selecionado = st.selectbox('Escolha o treino do dia:', (lista_treinos))
 with col2:
-    maromba = st.selectbox('Quem ta treinando?', (lista_marombas))
+    atleta = st.selectbox('Quem ta treinando?', (lista_atletas))
 with col3:
     data = st.date_input('Data', value=hora_atual, format="DD/MM/YYYY",)
 with col4:
@@ -31,6 +31,10 @@ st.markdown("""---""")
 lista_exercicio = Exercicio(treino_selecionado).get_exercicio()
 
 valores = {}
+
+valores['atleta'] = atleta
+valores['treino'] = treino_selecionado
+valores['data'] = data
 
 for num in range(1, exercicio_num + 1):
     col1, col2, col3, col4 = st.columns([3, 1, 1, 1])
@@ -61,12 +65,10 @@ for num in range(1, exercicio_num + 1):
     st.markdown("""---""")
 
 botao_salvar = st.button('Salvar')
-botao_ver_dados = st.button('Ver tabela com dados do banco')
+botao_ver_dados = st.button('Ver dados antes de inserir')
 
 if botao_salvar:
     salvar_dados_mongodb([valores]).database_insertion()
 
 if botao_ver_dados:
-    st.sidebar.text(valores)
     st.sidebar.table(valores)
-    st.sidebar.dataframe(valores)
