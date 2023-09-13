@@ -52,6 +52,7 @@ def get_series(qtd_series, serie_num):
 #     return lista_box_carga
 lista_var_1 = []
 lista_var_multip = []
+
 for num in range(1, exercicio_num + 1):
     col1, col2, col3, col4 = st.columns([3,1,1,1])
     with col1:
@@ -125,14 +126,36 @@ flat_lista_variaveis_completa = flatten_list(lista_variaveis_completa)
 #     dict_info[f"exec(f'carga_exercicio_5_{num}')"] = exec(f'carga_exercicio_5_{num}')
 #     lista_dados_coletados.append(dict_info)
 
+lista_var_ajustadas = []
+lista_qtds=[]
+for tamanho in range(len(lista_variaveis)):
+    qtd_series = int(lista_variaveis[tamanho][0][-7])
+    lista_qtds.append(qtd_series)
+
+for tamanho in range(len(lista_variaveis)):
+    for item in range(1, lista_qtds[tamanho] + 1):
+        lista_var_ajustadas.append([f'series_exercicio_{item}_num_{tamanho + 1}',
+                                    f'reps_exercicio_{item}_num_{tamanho + 1}',
+                                    f'carga_exercicio_{item}_num_{tamanho + 1}'])
+
+lista_var_completa = lista_var_1 + lista_var_ajustadas
+
 lista_variaveis_valores = []
 
-for variavel in flat_lista_variaveis_completa:
-    variaveis_valores = {}  # Crie um novo dicionário para cada iteração
-    valor = globals().get(variavel, None)
-    if isinstance(valor, (int, str)):
-        variaveis_valores[variavel] = valor
-    lista_variaveis_valores.append(variaveis_valores)
+for item in range(len(lista_var_completa)):
+    for value in range(len(lista_var_completa[item])):
+        variaveis_valores = {} 
+        valor = globals().get(lista_var_completa[item][value], None)
+        if isinstance(valor, (int, str)):
+            variaveis_valores[lista_var_completa[item][value]] = valor
+        lista_variaveis_valores.append(variaveis_valores)
+
+# for variavel in lista_var_completa:
+#     variaveis_valores = {}  # Crie um novo dicionário para cada iteração
+#     valor = globals().get(variavel, None)
+#     if isinstance(valor, (int, str)):
+#         variaveis_valores[variavel] = valor
+#     lista_variaveis_valores.append(variaveis_valores)
 
 botao_salvar = st.button('Salvar')
 botao_ver_dados = st.button('Ver tabela com dados do banco')
