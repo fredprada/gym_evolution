@@ -90,28 +90,28 @@ for num in range(1, exercicio_num + 1):
         valores[f'select_exercicio{num}'] = select_exercicio
         valores[f'qtd_series_exercicio_{num}'] = qtd_series_exercicio
 
-    with col2:
-        series_exercicio_1 = st.number_input("Séries: ", min_value=0, max_value=10, key=f"serie_{num}")
-        # Armazene os valores em um dicionário
-        valores[f'series_exercicio_1_{num}'] = series_exercicio_1
-        # Chame a função get_series diretamente aqui
-        Serie(qtd_series_exercicio, num).get_series()
+    # Crie listas para armazenar os valores das séries
+    series_values = []
+    reps_values = []
+    carga_values = []
 
-    with col3:
-        reps_exercicio_1 = st.number_input("Núm Reps: ", min_value=0, max_value=50, key=f"reps_{num}")
-        # Armazene os valores em um dicionário
-        valores[f'reps_exercicio_1_{num}'] = reps_exercicio_1
-        # Chame a função get_reps diretamente aqui
-        Serie(qtd_series_exercicio, num).get_reps()
+    for serie_num in range(1, qtd_series_exercicio + 1):
+        with col2:
+            series = st.number_input(f'Séries {serie_num}: ', min_value=0, max_value=10, key=f'series_{num}_{serie_num}')
+            series_values.append(series)
+        with col3:
+            reps = st.number_input(f'Núm Reps {serie_num}: ', min_value=0, max_value=50, key=f'reps_{num}_{serie_num}')
+            reps_values.append(reps)
+        with col4:
+            carga = st.number_input(f'Carga {serie_num}: ', min_value=0, max_value=10000, key=f'carga_{num}_{serie_num}')
+            carga_values.append(carga)
 
-    with col4:
-        carga_exercicio_1 = st.number_input("Carga: ", min_value=0, max_value=10000, key=f"carga_{num}")
-        # Armazene os valores em um dicionário
-        valores[f'carga_exercicio_1_{num}'] = carga_exercicio_1
-        # Chame a função get_cargas diretamente aqui
-        Serie(qtd_series_exercicio, num).get_cargas()
+    # Armazene as listas de valores das séries no dicionário
+    valores[f'series_exercicio_{num}'] = series_values
+    valores[f'reps_exercicio_{num}'] = reps_values
+    valores[f'carga_exercicio_{num}'] = carga_values
 
-    qtd_series = qtd_series_exercicio
+    # qtd_series = qtd_series_exercicio
 
     # lista_var_1.append([f'select_exercicio{num}',
     #                 f'qtd_series_exercicio_{num}',
