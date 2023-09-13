@@ -63,11 +63,10 @@ for num in range(1, exercicio_num + 1):
     st.markdown("""---""")
 lista_variaveis_completa = lista_variaveis + lista_series_difs
 
-# def flatten_list(nested_list):
-#     return list(itertools.chain(*nested_list))
+def flatten_list(nested_list):
+    return list(itertools.chain(*nested_list))
 
-# flat_lista_variaveis_completa = flatten_list(lista_variaveis_completa)
-# flat_lista_variaveis_completa = lista_variaveis_completa
+flat_lista_variaveis_completa = flatten_list(lista_variaveis_completa)
 
 # lista_dados_coletados = [{'var':lista_variaveis}]
 # dict_info = {}
@@ -96,14 +95,14 @@ lista_variaveis_completa = lista_variaveis + lista_series_difs
 #     dict_info[f"exec(f'carga_exercicio_5_{num}')"] = exec(f'carga_exercicio_5_{num}')
 #     lista_dados_coletados.append(dict_info)
 
-# lista_variaveis_valores = []
+lista_variaveis_valores = []lista_variaveis_completa
 
-# for variavel in flat_lista_variaveis_completa:
-#     variaveis_valores = {}  # Crie um novo dicionário para cada iteração
-#     valor = globals().get(variavel, None)
-#     if isinstance(valor, (int, str)):
-#         variaveis_valores[variavel] = valor
-#     lista_variaveis_valores.append(variaveis_valores)
+for variavel in flat_lista_variaveis_completa:
+    variaveis_valores = {}  # Crie um novo dicionário para cada iteração
+    valor = globals().get(variavel, None)
+    if isinstance(valor, (int, str)):
+        variaveis_valores[variavel] = valor
+    lista_variaveis_valores.append(variaveis_valores)
 
 botao_salvar = st.button('Salvar')
 botao_ver_dados = st.button('Ver tabela com dados do banco')
