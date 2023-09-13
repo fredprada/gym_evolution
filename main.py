@@ -78,27 +78,38 @@ lista_var_multip = []
        
 #     exec(f'qtd_series = qtd_series_exercicio_{num}')
     
+# Crie um dicionário para armazenar os valores
 valores = {}
 
 for num in range(1, exercicio_num + 1):
-    col1, col2, col3, col4 = st.columns([3,1,1,1])
+    col1, col2, col3, col4 = st.columns([3, 1, 1, 1])
     with col1:
         select_exercicio = st.selectbox(f'Exercício ({num}): ', (lista_exercicio))
         qtd_series_exercicio = st.selectbox("Número de séries diferentes:", ([1, 2, 3, 4, 5]), key=f"series_dif_{num}")
-    with col2:
-        series_exercicio_1 = st.number_input("Séries: ", min_value=0, max_value=10, key=f"serie_{num}")
         # Armazene os valores em um dicionário
         valores[f'select_exercicio{num}'] = select_exercicio
         valores[f'qtd_series_exercicio_{num}'] = qtd_series_exercicio
+
+    with col2:
+        series_exercicio_1 = st.number_input("Séries: ", min_value=0, max_value=10, key=f"serie_{num}")
+        # Armazene os valores em um dicionário
         valores[f'series_exercicio_1_{num}'] = series_exercicio_1
+        # Chame a função get_series diretamente aqui
+        Serie(qtd_series_exercicio, num).get_series()
+
     with col3:
         reps_exercicio_1 = st.number_input("Núm Reps: ", min_value=0, max_value=50, key=f"reps_{num}")
         # Armazene os valores em um dicionário
         valores[f'reps_exercicio_1_{num}'] = reps_exercicio_1
+        # Chame a função get_reps diretamente aqui
+        Serie(qtd_series_exercicio, num).get_reps()
+
     with col4:
         carga_exercicio_1 = st.number_input("Carga: ", min_value=0, max_value=10000, key=f"carga_{num}")
         # Armazene os valores em um dicionário
         valores[f'carga_exercicio_1_{num}'] = carga_exercicio_1
+        # Chame a função get_cargas diretamente aqui
+        Serie(qtd_series_exercicio, num).get_cargas()
 
     qtd_series = qtd_series_exercicio
 
