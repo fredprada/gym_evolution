@@ -25,5 +25,5 @@ class Serie:
     
     def get_all_names(self):
         lista_geral = []
-        lista_geral = self.get_series + self.get_all_names + self.get_reps
+        lista_geral = self.get_series() + self.get_all_names() + self.get_reps()
         return lista_geral
