@@ -49,7 +49,7 @@ for num in range(1, exercicio_num + 1):
         lista_cargas_diferentes = exec(f'Serie(qtd_series_exercicio_{num}, {num}).get_cargas()')
         lista_cargas_diferentes
     exec(f'qtd_series = qtd_series_exercicio_{num}')
-    lista_series_difs = [lista_series_diferentes + lista_reps_diferentes + lista_cargas_diferentes]
+    # lista_series_difs = [lista_series_diferentes + lista_reps_diferentes + lista_cargas_diferentes]
     # lista_series_difs = []
     # for qtd in range(1, qtd_series + 1):
         # var_series_dif = [f'series_exercicio_{qtd}_num_{num}',
@@ -63,7 +63,7 @@ for num in range(1, exercicio_num + 1):
                           f'carga_exercicio_1_{num}']
     lista_variaveis.append(variaveis_conjunto)
     st.markdown("""---""")
-lista_variaveis_completa = lista_variaveis + lista_series_difs
+lista_variaveis_completa = lista_cargas_diferentes#lista_variaveis + lista_series_difs
 
 def flatten_list(nested_list):
     return list(itertools.chain(*nested_list))
