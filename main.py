@@ -48,7 +48,7 @@ for num in range(1, exercicio_num + 1):
        
     exec(f'qtd_series = qtd_series_exercicio_{num}')
     lista_series_difs = []
-    for qtd in range(1, qtd_series + 1):
+    for qtd in range(0, qtd_series + 1):
         var_series_dif = [f'series_exercicio_{qtd}_num_{num}',
                           f'reps_exercicio_{qtd}_num_{num}',
                           f'carga_exercicio_{qtd}_num_{num}']
@@ -97,12 +97,12 @@ lista_variaveis_completa = lista_variaveis + lista_series_difs
 
 # lista_variaveis_valores = []
 
-# for variavel in flat_lista_variaveis_completa:
-#     variaveis_valores = {}  # Crie um novo dicionário para cada iteração
-#     valor = globals().get(variavel, None)
-#     if isinstance(valor, (int, str)):
-#         variaveis_valores[variavel] = valor
-#     lista_variaveis_valores.append(variaveis_valores)
+for variavel in flat_lista_variaveis_completa:
+    variaveis_valores = {}  # Crie um novo dicionário para cada iteração
+    valor = globals().get(variavel, None)
+    if isinstance(valor, (int, str)):
+        variaveis_valores[variavel] = valor
+    lista_variaveis_valores.append(variaveis_valores)
 
 botao_salvar = st.button('Salvar')
 botao_ver_dados = st.button('Ver tabela com dados do banco')
