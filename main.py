@@ -59,7 +59,7 @@ for num in range(1, exercicio_num + 1):
         exec(f'qtd_series_exercicio_{num} = st.selectbox("Número de séries diferentes:", ([1, 2, 3, 4, 5]), key = "series_dif_{num}")')
     with col2:
         exec(f'series_exercicio_1_{num} = st.number_input("Séries: ", min_value = 0, max_value = 10, key = "serie_{num}")')
-        get_series(f'qtd_series_exercicio_{num}', num)
+        exec(f'Serie(qtd_series_exercicio_{num}, {num}).get_series()')
     with col3:
         exec(f'reps_exercicio_1_{num} = st.number_input("Núm Reps: ", min_value = 0, max_value = 50, key = "reps_{num}")')
         exec(f'Serie(qtd_series_exercicio_{num}, {num}).get_reps()')
