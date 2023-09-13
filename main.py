@@ -147,9 +147,7 @@ lista_variaveis_valores = []
 for item in range(len(lista_nomes_vars)):
     variaveis_valores = {} 
     valor = globals().get(item, None)
-    if isinstance(valor, (int, str)):
-        variaveis_valores[item] = valor
-    lista_variaveis_valores.append(variaveis_valores)
+    lista_variaveis_valores.append(valor)
 
 # for variavel in lista_var_completa:
 #     variaveis_valores = {}  # Crie um novo dicionário para cada iteração
