@@ -7,18 +7,24 @@ class Serie:
 
     def get_series(self):
         lista_box_series = []
+        lista_nomes_series = []
         for item in range(2, self.qtd_series + 1):
             lista_box_series.append(exec(f'series_exercicio_{self.serie_num}_num_{item} = st.number_input("Séries: ", min_value = 0, max_value = 10, key="serie_{self.serie_num}_{item}")'))
-        return lista_box_series, self.qtd_series
+            lista_nomes_series.append(str(exec(f'series_exercicio_{self.serie_num}_num_{item}')))
+        return lista_box_series, lista_nomes_series
 
     def get_reps(self):
         lista_box_reps = []
+        lista_nomes_reps = []
         for item in range(2, self.qtd_series + 1):
             lista_box_reps.append(exec(f'reps_exercicio_{self.serie_num}_num_{item} = st.number_input("Núm Reps: ", min_value = 0, max_value = 50, key="reps_{self.serie_num}_{item}")'))
-        return lista_box_reps, self.qtd_series
+            lista_nomes_reps.append(str(exec(f'series_exercicio_{self.serie_num}_num_{item}')))
+        return lista_box_reps, lista_nomes_reps
 
     def get_cargas(self):
         lista_box_carga = []
+        lista_nomes_cargas = []
         for item in range(2, self.qtd_series + 1):
             lista_box_carga.append(exec(f'carga_exercicio_{self.serie_num}_num_{item} = st.number_input("Carga: ", min_value = 0, max_value = 1000, key="carga_{self.serie_num}_{item}")'))
-        return lista_box_carga, self.qtd_series
+            lista_nomes_cargas.append(str(exec(f'series_exercicio_{self.serie_num}_num_{item}')))
+        return lista_box_carga, lista_nomes_cargas
