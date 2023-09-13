@@ -116,3 +116,4 @@ if botao_ver_dados:
     # salvar_dados_mongodb(lista_dados_coletados).retrieve_data_from_mongodb()
     # st.sidebar.text(flat_lista_variaveis_completa)
     st.sidebar.text(lista_variaveis_completa)
+    st.sidebar.text(lista_variaveis_valores)
