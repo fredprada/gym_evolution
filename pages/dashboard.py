@@ -27,7 +27,7 @@ if botao_puxar_dados:
 today = datetime.datetime.now() - datetime.timedelta(hours=3)
 current_week = datetime.date.isocalendar(today)[1]
 df_valores_filtrado['data'] = df_valores_filtrado['data'].astype('datetime64[ns]')
-df_valores_filtrado['numero_da_semana'] = datetime.date.isocalendar('data')[1]
+df_valores_filtrado['numero_da_semana'] = datetime.date.isocalendar(df_valores_filtrado['data'])[1]
 
 df_current_week = df_valores_filtrado[df_valores_filtrado['numero_da_semana'] == current_week]
 treinos_essa_semana = len(df_current_week)
