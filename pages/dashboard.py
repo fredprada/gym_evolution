@@ -2,6 +2,7 @@ import streamlit as st
 import plotly.express as px
 import pandas as pd
 from get_dados import get_dados_mongodb
+from openpyxl.workbook import Workbook
 
 ######################################################################################################################################
 # Defining page properties and title, header and subheader
