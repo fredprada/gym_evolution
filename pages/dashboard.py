@@ -12,12 +12,12 @@ lista_atletas = ['Fred','Mari']
 
 col1, col2, col3, col4 = st.columns([2, 1, 1, 1])
 with col1:
-    lista_atletas = st.selectbox('Atleta:', lista_atletas)
+    atleta = st.selectbox('Atleta:', lista_atletas)
 
 valores = get_dados_mongodb().retrieve_data_from_mongodb()
-# salvar_dados_mongodb(valores).retrieve_data_from_mongodb()
-
 df_valores = valores
+
+df_valores_filtrado = df_valores[df_valores['atleta'] == atleta]
 
 botao_puxar_dados = st.button('Ver dados da base de dados')
 
