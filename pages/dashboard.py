@@ -2,7 +2,6 @@ import streamlit as st
 import plotly.express as px
 import pandas as pd
 from salvar_dados import salvar_dados_mongodb
-from main import move_tabela_valores
 
 ######################################################################################################################################
 # Defining page properties and title, header and subheader
