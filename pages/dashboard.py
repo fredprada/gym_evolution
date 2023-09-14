@@ -17,8 +17,18 @@ with col1:
 valores = get_dados_mongodb().retrieve_data_from_mongodb()
 # salvar_dados_mongodb(valores).retrieve_data_from_mongodb()
 
-st.json(valores)
-st.table(valores)
+df_valores = valores
+
+botao_puxar_dados = st.button('Ver dados da base de dados')
+
+if botao_puxar_dados:
+    st.dataframe(df_valores)
+
+
+
+
+
+
 # Treinos por semana
 # Evolução da melhor série do exercício
 # Calendário com dias que treinou

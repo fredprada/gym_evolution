@@ -72,7 +72,3 @@ if botao_salvar:
 
 if botao_ver_dados:
     st.sidebar.table(valores)
-    st.sidebar.table(salvar_dados_mongodb(valores).retrieve_data_from_mongodb())
-
-def move_tabela_valores():
-    return valores
