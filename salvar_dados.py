@@ -21,9 +21,3 @@ class salvar_dados_mongodb:
         collection.insert_many(self.tabela_para_salvar)
         st.sidebar.text('Dados salvos!')
 
-    def retrieve_data_from_mongodb(self):
-        self.connect_to_mongodb()
-        data_list = []
-        data_list = [x for x in collection.find()]
-        df_data_list = pd.DataFrame(data_list)
-        return df_data_list

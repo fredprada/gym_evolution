@@ -1,12 +1,11 @@
 import streamlit as st
 import plotly.express as px
 import pandas as pd
-from salvar_dados import salvar_dados_mongodb
 from get_dados import get_dados_mongodb
 
 ######################################################################################################################################
 # Defining page properties and title, header and subheader
-st.set_page_config(page_title = "📈 Dashboard", layout="wide")
+st.set_page_config(page_title = "Dashboard", layout="wide", page_icon = "📈")
 
 lista_atletas = ['Fred','Mari']
 
@@ -22,7 +21,10 @@ df_valores_filtrado = df_valores[df_valores['atleta'] == atleta]
 botao_puxar_dados = st.button('Ver dados da base de dados')
 
 if botao_puxar_dados:
-    st.dataframe(df_valores)
+    st.dataframe(df_valores_filtrado)
+    df_valores.to_excel('valores.xlsx')
+
+
 
 
 
