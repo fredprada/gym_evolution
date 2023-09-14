@@ -36,7 +36,7 @@ treinos_essa_semana = len(df_current_week)
 st.metric(label="Treinos essa semana",value = treinos_essa_semana)
 
 col1, col2 = st.columns([1, 2])
-fig = px.bar(df_treinos_por_semana, x="numero_da_semana", y="count", text="qtd")
+fig = px.bar(df_treinos_por_semana, x="numero_da_semana", y="count", text="count")
 fig.update_traces(textposition="outside")
 fig.update_layout(xaxis_title="Número da semana", yaxis_title="Dias que treinou", yaxis_range=[0, 7],width=600,height=400)
 fig.update_traces(marker=dict(color='#20837b'))
