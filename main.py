@@ -6,7 +6,6 @@ from serie import Serie
 from salvar_dados import salvar_dados_mongodb
 from pymongo import MongoClient
 import os
-import itertools
 
 st.set_page_config(page_title = "Evolução academia", page_icon = "💪")
 
