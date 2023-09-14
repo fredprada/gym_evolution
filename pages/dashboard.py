@@ -28,7 +28,7 @@ today = datetime.datetime.now() - datetime.timedelta(hours=3)
 current_week = datetime.date.isocalendar(today)[1]
 df_valores_filtrado['data'] = df_valores_filtrado['data'].astype('datetime64[ns]')
 df_valores_filtrado['numero_da_semana'] = df_valores_filtrado['data'].apply(lambda x: datetime.date.isocalendar(x)[1])
-treinos_essa_semana = pd.DataFrame(df_valores_filtrado.groupby('numero_da_semana').count()).reset_index()
+treinos_essa_semana = pd.DataFrame(df_valores_filtrado[['numero_da_semana']].value_counts()).reset_index()
 
 df_current_week = df_valores_filtrado[df_valores_filtrado['numero_da_semana'] == current_week]
 treinos_essa_semana = len(df_current_week)
