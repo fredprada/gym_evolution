@@ -16,11 +16,11 @@ lista_treinos = ['1- PEITO | OMBRO | TRÍCEPS',
                  '3- PERNA']
 lista_atletas = ['Fred','Mari']
 
-col1, col2, col3, col4 = st.columns([2, 1, 1, 1])
+col1, col2, col3, col4 = st.columns([1, 2, 1, 1])
 with col1:
-    treino_selecionado = st.selectbox('Escolha o treino do dia:', (lista_treinos))
-with col2:
     atleta = st.selectbox('Quem ta treinando?', (lista_atletas))
+with col2:
+    treino_selecionado = st.selectbox('Escolha o treino do dia:', (lista_treinos))
 with col3:
     data = st.date_input('Data', value=hora_atual, format="DD/MM/YYYY",)
 with col4:
@@ -72,3 +72,4 @@ if botao_salvar:
 
 if botao_ver_dados:
     st.sidebar.table(valores)
+    st.sidebar.table(salvar_dados_mongodb(valores).retrieve_data_from_mongodb())
