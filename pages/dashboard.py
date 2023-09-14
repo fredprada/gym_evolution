@@ -2,7 +2,7 @@ import streamlit as st
 import plotly.express as px
 import pandas as pd
 from salvar_dados import salvar_dados_mongodb
-from main import move_tabela_valores
+from get_dados import get_dados_mongodb
 
 ######################################################################################################################################
 # Defining page properties and title, header and subheader
@@ -14,8 +14,8 @@ col1, col2, col3, col4 = st.columns([2, 1, 1, 1])
 with col1:
     lista_atletas = st.selectbox('Atleta:', lista_atletas)
 
-valores = move_tabela_valores()
-salvar_dados_mongodb(valores).retrieve_data_from_mongodb()
+valores = get_dados_mongodb().retrieve_data_from_mongodb()
+# salvar_dados_mongodb(valores).retrieve_data_from_mongodb()
 
 st.json(valores)
 st.table(valores)
