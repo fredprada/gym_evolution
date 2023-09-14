@@ -7,3 +7,4 @@ seaborn
 numpy
 datetime
 itertools
+openpyxl
