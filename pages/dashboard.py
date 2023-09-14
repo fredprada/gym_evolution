@@ -53,7 +53,7 @@ for treino in lista_treinos:
     filtrado = df_valores_filtrado[df_valores_filtrado['treino'] == treino].sort_values('data', ascending = False)
     ex1 = filtrado['select_exercicio1']
     ex1_carga = max(filtrado['carga_exercicio_1'])
-    lista_metricas.append(ex1, ex1_carga)
+    lista_metricas.append([ex1, ex1_carga])
 
 st.table(lista_metricas)
 
