@@ -167,14 +167,14 @@ for df, titulo, col in zip(df_list, titulos_list, cols):
                 y='max_carga',
                 text='max_carga',
                 markers=True,
-                yaxis_range=[min('max_carga'), max('max_carga')],
                 width=1000, 
                 height=300)
     fig.update_traces(textposition='top center', 
                     textfont_size=16)
     fig.update_layout(yaxis_title=None,
                     xaxis_title=None,
-                    yaxis={'visible': False})
+                    yaxis={'visible': False},
+                   yaxis_range=[min('max_carga'), max('max_carga')])
     fig.update_layout(title=dict(text=titulo, font=dict(size=22)))
     fig.update_traces(marker=dict(color='#20837b'),
                       line=dict(color='#20837b'))
@@ -187,14 +187,14 @@ for df, titulo, col in zip(df_list_2, titulos_list_2, cols_2):
                 y='max_carga',
                 text='max_carga',
                 markers=True, 
-                yaxis_range=[min('max_carga'), max('max_carga')],
                 width=1000, 
                 height=300)
     fig.update_traces(textposition='top center', 
                     textfont_size=16)
     fig.update_layout(yaxis_title=None,
                     xaxis_title=None,
-                    yaxis={'visible': False})
+                    yaxis={'visible': False},
+                   yaxis_range=[min('max_carga'), max('max_carga')])
     fig.update_layout(title=dict(text=titulo, font=dict(size=22)))
     fig.update_traces(marker=dict(color='#20837b'),
                       line=dict(color='#20837b'))
