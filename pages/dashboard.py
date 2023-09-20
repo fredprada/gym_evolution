@@ -81,12 +81,22 @@ df_agupado_por_treino = get_max_carga(treino_selecionado)
 #######################################################################################
 # Metrica treinos por semana
 today = datetime.datetime.now() - datetime.timedelta(hours=3)
-current_week = datetime.date.isocalendar(today)[1]
 df_agupado_por_treino['data'] = df_agupado_por_treino['data'].astype('datetime64[ns]')
 df_agupado_por_treino['numero_da_semana'] = df_agupado_por_treino['data'].apply(lambda x: datetime.date.isocalendar(x)[1])
+
+current_week = datetime.date.isocalendar(today)[1]
 df_current_week = df_agupado_por_treino[df_agupado_por_treino['numero_da_semana'] == current_week]
 treinos_essa_semana = len(df_current_week['data'].drop_duplicates())
-st.metric(label="Treinos essa semana",value = treinos_essa_semana)
+
+last_week = datetime.date.isocalendar(today)[1] - 1
+df_last_week = df_agupado_por_treino[df_agupado_por_treino['numero_da_semana'] == last_week]
+treinos_semana_passada = len(df_last_week['data'].drop_duplicates())
+
+col1, col2 = st.columns([3, 1])
+with col1:
+    st.metric(label="Treinos essa semana", value = treinos_essa_semana)
+with col2:
+    st.metric(label="Treinos semana passada", value = treinos_semana_passada)
 
 #######################################################################################
 # Gráfico treinos por semana
