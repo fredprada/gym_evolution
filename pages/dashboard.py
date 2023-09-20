@@ -162,7 +162,21 @@ titulos_list = [titulo1, titulo2, titulo3]
 titulos_list_2 = [titulo4, titulo5]
 cols = [col1, col2, col3]
 cols_2 = [col1, col2]
+
+def get_limits(df):
+    lim_inf = min(df['max_carga'])
+    lim_sup = max(df['max_carga'])
+    if (lim_inf is None) or (lim_sup is None):
+        valor_lim_inf = 0
+        valor_lim_sup = 0
+    else:
+        valor_lim_inf = lim_inf - 2
+        valor_lim_sup = lim_sup + 2
+    return valor_lim_inf, valor_lim_sup
+
+
 for df, titulo, col in zip(df_list, titulos_list, cols):
+    valor_lim_inf, valor_lim_sup = get_limits(df)
     fig = px.line(df, 
                 x='data', 
                 y='max_carga',
@@ -175,7 +189,7 @@ for df, titulo, col in zip(df_list, titulos_list, cols):
     fig.update_layout(yaxis_title=None,
                     xaxis_title=None,
                     yaxis={'visible': False},
-                   yaxis_range=[int(min(df['max_carga']))-2, int(max(df['max_carga']))+2])
+                    yaxis_range=[int(valor_lim_inf)-2, int(valor_lim_sup)+2])
     fig.update_layout(title=dict(text=titulo, font=dict(size=22)))
     fig.update_traces(marker=dict(color='#20837b'),
                       line=dict(color='#20837b'))
@@ -195,7 +209,7 @@ for df, titulo, col in zip(df_list_2, titulos_list_2, cols_2):
     fig.update_layout(yaxis_title=None,
                     xaxis_title=None,
                     yaxis={'visible': False},
-                   yaxis_range=[int(min(df['max_carga']))-2, int(max(df['max_carga']))+2])
+                   yaxis_range=[int(valor_lim_inf)-2, int(valor_lim_sup)+2])
     fig.update_layout(title=dict(text=titulo, font=dict(size=22)))
     fig.update_traces(marker=dict(color='#20837b'),
                       line=dict(color='#20837b'))
