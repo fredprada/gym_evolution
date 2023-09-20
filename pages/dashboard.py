@@ -74,31 +74,6 @@ def get_dataframes_from_treino(treino_selecionado):
     if treino_selecionado == '1- PEITO | OMBRO | TRÍCEPS':
         df_agupado_por_treino = get_max_carga(treino_selecionado)
         ##################################################################################################################
-        # COSTAS E BICEPS
-        df1 = df_agupado_por_treino[df_agupado_por_treino['select_exercicio1'] == 'COSTAS | PUXADA ALTA FRONTAL COM PEGADA ABERTA']
-        df1 = df1[['data','max_carga']]
-        titulo1 = 'Puxada Alta'
-
-        df2 = df_agupado_por_treino[df_agupado_por_treino['select_exercicio1'] == 'COSTAS | REMADA BAIXA']
-        df2 = df2[['data','max_carga']]
-        titulo2 = 'Remada Baixa'
-
-        df3 = df_agupado_por_treino[df_agupado_por_treino['select_exercicio1'] == 'COSTAS | PULL DOWN']
-        df3 = df3[['data','max_carga']]
-        titulo3 = 'Pull Down'
-        
-        df4 = df_agupado_por_treino[df_agupado_por_treino['select_exercicio1'] == 'BÍCEPS | ROSCA DIRETA']
-        df4 = df4[['data','max_carga']]
-        titulo4 = 'Rosca Direta'
-
-        df5 = df_agupado_por_treino[df_agupado_por_treino['select_exercicio1'] == 'BÍCEPS | ROSCA MARTELO']
-        df5 = df5[['data','max_carga']]
-        titulo5 = 'Rosca Martelo'
-        return df1, df2, df3, df4, df5, titulo1, titulo2, titulo3, titulo4, titulo5
-    
-    elif treino_selecionado == '2- COSTAS | BÍCEPS':
-        df_agupado_por_treino = get_max_carga(treino_selecionado)
-        ##################################################################################################################
         # PEITO, OMBRO E TRICEPS
         df1 = df_agupado_por_treino[df_agupado_por_treino['select_exercicio1'] == 'PEITO | SUPINO RETO']
         df1 = df1[['data','max_carga']]
@@ -121,6 +96,31 @@ def get_dataframes_from_treino(treino_selecionado):
         titulo5 = 'Tríceps Corda'
         return df1, df2, df3, df4, df5, titulo1, titulo2, titulo3, titulo4, titulo5
     
+    elif treino_selecionado == '2- COSTAS | BÍCEPS':
+        df_agupado_por_treino = get_max_carga(treino_selecionado)
+        ##################################################################################################################
+        # COSTAS E BICEPS
+        df1 = df_agupado_por_treino[df_agupado_por_treino['select_exercicio1'] == 'COSTAS | PUXADA ALTA FRONTAL COM PEGADA ABERTA']
+        df1 = df1[['data','max_carga']]
+        titulo1 = 'Puxada Alta'
+
+        df2 = df_agupado_por_treino[df_agupado_por_treino['select_exercicio1'] == 'COSTAS | REMADA BAIXA']
+        df2 = df2[['data','max_carga']]
+        titulo2 = 'Remada Baixa'
+
+        df3 = df_agupado_por_treino[df_agupado_por_treino['select_exercicio1'] == 'COSTAS | PULL DOWN']
+        df3 = df3[['data','max_carga']]
+        titulo3 = 'Pull Down'
+        
+        df4 = df_agupado_por_treino[df_agupado_por_treino['select_exercicio1'] == 'BÍCEPS | ROSCA DIRETA']
+        df4 = df4[['data','max_carga']]
+        titulo4 = 'Rosca Direta'
+
+        df5 = df_agupado_por_treino[df_agupado_por_treino['select_exercicio1'] == 'BÍCEPS | ROSCA MARTELO']
+        df5 = df5[['data','max_carga']]
+        titulo5 = 'Rosca Martelo'
+        return df1, df2, df3, df4, df5, titulo1, titulo2, titulo3, titulo4, titulo5
+   
     elif treino_selecionado == '3- PERNA':
         df_agupado_por_treino = get_max_carga(treino_selecionado)
         ##################################################################################################################
