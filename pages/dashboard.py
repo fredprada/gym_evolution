@@ -17,20 +17,25 @@ from exercicio import Exercicio
 st.set_page_config(page_title = "Dashboard", layout="wide", page_icon = "📈")
 
 lista_atletas = ['Fred','Mari']
+lista_treinos = ['1- PEITO | OMBRO | TRÍCEPS', 
+                 '2- COSTAS | BÍCEPS',
+                 '3- PERNA']
 
-col1, col2, col3, col4 = st.columns([2, 1, 1, 1])
+col1, col2, col3, col4 = st.columns([1, 2, 1, 1])
 with col1:
     atleta = st.selectbox('Atleta:', lista_atletas)
+with col2:
+    treino_selecionado = st.selectbox('Escolha o treino:', (lista_treinos))
 
 valores = get_dados_mongodb().retrieve_data_from_mongodb()
 df_valores = valores
 
 df_valores_filtrado = df_valores[df_valores['atleta'] == atleta]
 
-botao_puxar_dados = st.button('Ver dados da base de dados')
+# botao_puxar_dados = st.button('Ver dados da base de dados')
 
-if botao_puxar_dados:
-    st.dataframe(df_valores_filtrado)
+# if botao_puxar_dados:
+#     st.dataframe(df_valores_filtrado)
 
 #######################################################################################
 # Metrica treinos por semana
@@ -59,13 +64,7 @@ col1.plotly_chart(fig, theme=None, use_container_width=True)
 
 #######################################################################################
 # Evolução da maior carga por exercício
-lista_treinos = ['1- PEITO | OMBRO | TRÍCEPS', 
-                 '2- COSTAS | BÍCEPS',
-                 '3- PERNA']
 
-col1, _, _ = st.columns([1, 1, 1])
-with col1:
-    treino_selecionado = st.selectbox('Escolha o treino:', (lista_treinos))
 
 lista_exercicio = Exercicio(treino_selecionado).get_exercicio()
 
@@ -167,7 +166,8 @@ for df, titulo, col in zip(df_list, titulos_list, cols):
                 x='data', 
                 y='max_carga',
                 text='max_carga',
-                markers=True, 
+                markers=True,
+                yaxis_range=[min('max_carga'), max('max_carga')],
                 width=1000, 
                 height=300)
     fig.update_traces(textposition='top center', 
@@ -187,6 +187,7 @@ for df, titulo, col in zip(df_list_2, titulos_list_2, cols_2):
                 y='max_carga',
                 text='max_carga',
                 markers=True, 
+                yaxis_range=[min('max_carga'), max('max_carga')],
                 width=1000, 
                 height=300)
     fig.update_traces(textposition='top center', 
