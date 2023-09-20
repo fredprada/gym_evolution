@@ -54,12 +54,13 @@ df_treinos_por_semana = pd.DataFrame(df_valores_filtrado[['numero_da_semana']].d
 col1, col2 = st.columns([1, 2])
 fig = px.bar(df_treinos_por_semana, x="numero_da_semana", y="count", text="count")
 fig.update_traces(textposition="outside")
-fig.update_layout(xaxis_title="Número da semana", 
-                  yaxis_title="Dias que treinou", 
+fig.update_layout(xaxis_title="N° da semana", 
+                  yaxis_title=None, 
                   yaxis_range=[0, 7],
                   width=600,
                   height=300)
 fig.update_traces(marker=dict(color='#20837b'))
+fig.update_layout(title=dict(text='Treinos por semana', font=dict(size=22)))
 col1.plotly_chart(fig, theme=None, use_container_width=True)
 
 #######################################################################################
@@ -174,7 +175,7 @@ for df, titulo, col in zip(df_list, titulos_list, cols):
     fig.update_layout(yaxis_title=None,
                     xaxis_title=None,
                     yaxis={'visible': False},
-                   yaxis_range=[min('max_carga'), max('max_carga')])
+                   yaxis_range=[min('max_carga')-2, max('max_carga')+2])
     fig.update_layout(title=dict(text=titulo, font=dict(size=22)))
     fig.update_traces(marker=dict(color='#20837b'),
                       line=dict(color='#20837b'))
@@ -194,7 +195,7 @@ for df, titulo, col in zip(df_list_2, titulos_list_2, cols_2):
     fig.update_layout(yaxis_title=None,
                     xaxis_title=None,
                     yaxis={'visible': False},
-                   yaxis_range=[min('max_carga'), max('max_carga')])
+                   yaxis_range=[min('max_carga')-2, max('max_carga')+2])
     fig.update_layout(title=dict(text=titulo, font=dict(size=22)))
     fig.update_traces(marker=dict(color='#20837b'),
                       line=dict(color='#20837b'))
