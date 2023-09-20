@@ -49,7 +49,11 @@ df_treinos_por_semana = pd.DataFrame(df_valores_filtrado[['numero_da_semana']].d
 col1, col2 = st.columns([1, 2])
 fig = px.bar(df_treinos_por_semana, x="numero_da_semana", y="count", text="count")
 fig.update_traces(textposition="outside")
-fig.update_layout(xaxis_title="Número da semana", yaxis_title="Dias que treinou", yaxis_range=[0, 7],width=600,height=400)
+fig.update_layout(xaxis_title="Número da semana", 
+                  yaxis_title="Dias que treinou", 
+                  yaxis_range=[0, 7],
+                  width=600,
+                  height=300)
 fig.update_traces(marker=dict(color='#20837b'))
 col1.plotly_chart(fig, theme=None, use_container_width=True)
 
@@ -59,7 +63,10 @@ lista_treinos = ['1- PEITO | OMBRO | TRÍCEPS',
                  '2- COSTAS | BÍCEPS',
                  '3- PERNA']
 
-treino_selecionado = st.selectbox('Escolha o treino:', (lista_treinos))
+col1, _, _ = st.columns([1, 1, 1])
+with col1:
+    treino_selecionado = st.selectbox('Escolha o treino:', (lista_treinos))
+
 lista_exercicio = Exercicio(treino_selecionado).get_exercicio()
 
 def get_max_carga(treino_selecionado):
@@ -169,7 +176,8 @@ for df, titulo, col in zip(df_list, titulos_list, cols):
                     xaxis_title=None,
                     yaxis={'visible': False})
     fig.update_layout(title=dict(text=titulo, font=dict(size=22)))
-    fig.update_traces(marker=dict(color='#20837b'))
+    fig.update_traces(marker=dict(color='#20837b'),
+                      line=dict(color='#20837b'))
     col.plotly_chart(fig, theme=None, use_container_width=True)
 
 col1, col2, _ = st.columns([1, 1, 1])
@@ -187,5 +195,6 @@ for df, titulo, col in zip(df_list_2, titulos_list_2, cols_2):
                     xaxis_title=None,
                     yaxis={'visible': False})
     fig.update_layout(title=dict(text=titulo, font=dict(size=22)))
-    fig.update_traces(marker=dict(color='#20837b'))
+    fig.update_traces(marker=dict(color='#20837b'),
+                      line=dict(color='#20837b'))
     col.plotly_chart(fig, theme=None, use_container_width=True)
