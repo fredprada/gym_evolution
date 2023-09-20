@@ -94,7 +94,8 @@ def get_dataframes_from_treino(treino_selecionado):
         df5 = df_agupado_por_treino[df_agupado_por_treino['select_exercicio1'] == 'BÍCEPS | ROSCA MARTELO']
         df5 = df5[['data','max_carga']]
         titulo5 = 'Rosca Martelo'
-
+        return df1, df2, df3, df4, df5, titulo1, titulo2, titulo3, titulo4, titulo5
+    
     elif treino_selecionado == '2- COSTAS | BÍCEPS':
         df_agupado_por_treino = get_max_carga(treino_selecionado)
         ##################################################################################################################
@@ -118,7 +119,8 @@ def get_dataframes_from_treino(treino_selecionado):
         df5 = df_agupado_por_treino[df_agupado_por_treino['select_exercicio1'] == 'TRÍCEPS | TRÍCEPS CORDA']
         df5 = df5[['data','max_carga']]
         titulo5 = 'Tríceps Corda'
-        
+        return df1, df2, df3, df4, df5, titulo1, titulo2, titulo3, titulo4, titulo5
+    
     elif treino_selecionado == '3- PERNA':
         df_agupado_por_treino = get_max_carga(treino_selecionado)
         ##################################################################################################################
@@ -142,8 +144,7 @@ def get_dataframes_from_treino(treino_selecionado):
         df5 = df_agupado_por_treino[df_agupado_por_treino['select_exercicio1'] == 'PERNA | LEVANTAMENTO TERRA SUMO']
         df5 = df5[['data','max_carga']]
         titulo5 = 'Terra'
-
-    return df1, df2, df3, df4, df5, titulo1, titulo2, titulo3, titulo4, titulo5
+        return df1, df2, df3, df4, df5, titulo1, titulo2, titulo3, titulo4, titulo5
 
 df1, df2, df3, df4, df5, titulo1, titulo2, titulo3, titulo4, titulo5 = get_dataframes_from_treino(treino_selecionado)
     
