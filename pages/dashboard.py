@@ -162,7 +162,7 @@ for df, titulo, col in zip(df_list, titulos_list, cols):
                 text='max_carga',
                 markers=True, 
                 width=1000, 
-                height=600)
+                height=300)
     fig.update_traces(textposition='top center', 
                     textfont_size=16)
     fig.update_layout(yaxis_title=None,
@@ -172,7 +172,7 @@ for df, titulo, col in zip(df_list, titulos_list, cols):
     fig.update_traces(marker=dict(color='#20837b'))
     col.plotly_chart(fig, theme=None, use_container_width=True)
 
-col1, col2, _ = st.columns([1, 1])
+col1, col2, _ = st.columns([1, 1, 1])
 for df, titulo, col in zip(df_list_2, titulos_list_2, cols_2):
     fig = px.line(df, 
                 x='data', 
@@ -180,7 +180,7 @@ for df, titulo, col in zip(df_list_2, titulos_list_2, cols_2):
                 text='max_carga',
                 markers=True, 
                 width=1000, 
-                height=600)
+                height=300)
     fig.update_traces(textposition='top center', 
                     textfont_size=16)
     fig.update_layout(yaxis_title=None,
