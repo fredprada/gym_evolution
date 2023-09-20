@@ -52,15 +52,14 @@ st.metric(label="Treinos essa semana",value = treinos_essa_semana)
 df_treinos_por_semana = pd.DataFrame(df_valores_filtrado[['numero_da_semana']].drop_duplicates().value_counts()).reset_index()
 
 col1, col2 = st.columns([3, 1])
-fig = px.line(df_treinos_por_semana, x="numero_da_semana", y="count", text="count")
+fig = px.bar(df_treinos_por_semana, x="numero_da_semana", y="count", text="count")
 fig.update_traces(textposition="outside")
 fig.update_layout(xaxis_title="N° da semana", 
                   yaxis_title=None, 
                   yaxis_range=[0, 7],
                   width=800,
                   height=300)
-fig.update_traces(marker=dict(color='#20837b'),
-                  line=dict(color='#20837b'))
+fig.update_traces(marker=dict(color='#20837b'))
 fig.update_layout(title=dict(text='Treinos por semana', font=dict(size=22)))
 col1.plotly_chart(fig, theme=None, use_container_width=True)
 
