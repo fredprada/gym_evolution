@@ -148,18 +148,22 @@ def get_dataframes_from_treino(treino_selecionado):
 
 df1, df2, df3, df4, df5, titulo1, titulo2, titulo3, titulo4, titulo5 = get_dataframes_from_treino(treino_selecionado)
     
-col1, col2, col3 = st.columns([1, 1, 1])
-fig = px.line(df1, 
-              x='data', 
-              y='max_carga',
-              text='max_carga',
-              markers=True, 
-              width=600, 
-              height=300)
-fig.update_traces(textposition='top center', 
-                  textfont_size=16)
-fig.update_layout(yaxis_title=None,
-                  xaxis_title=None,
-                  yaxis={'visible': False})
-fig.update_layout(title=dict(text=titulo1, font=dict(size=22)))
-col1.plotly_chart(fig, theme=None, use_container_width=True)
+col1, col2, col3, col4, col5 = st.columns([1, 1, 1, 1, 1])
+df_list = [df1, df2, df3, df4, df5]
+titulos_list = [titulo1, titulo2, titulo3, titulo4, titulo5]
+cols = [col1, col2, col3, col4, col5]
+for df, titulo, col in zip(df_list, titulos_list, cols):
+    fig = px.line(df, 
+                x='data', 
+                y='max_carga',
+                text='max_carga',
+                markers=True, 
+                width=600, 
+                height=300)
+    fig.update_traces(textposition='top center', 
+                    textfont_size=16)
+    fig.update_layout(yaxis_title=None,
+                    xaxis_title=None,
+                    yaxis={'visible': False})
+    fig.update_layout(title=dict(text=titulo, font=dict(size=22)))
+    col.plotly_chart(fig, theme=None, use_container_width=True)
