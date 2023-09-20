@@ -37,31 +37,31 @@ df_valores_filtrado = df_valores[df_valores['atleta'] == atleta]
 # if botao_puxar_dados:
 #     st.dataframe(df_valores_filtrado)
 
-#######################################################################################
-# Metrica treinos por semana
-today = datetime.datetime.now() - datetime.timedelta(hours=3)
-current_week = datetime.date.isocalendar(today)[1]
-df_valores_filtrado['data'] = df_valores_filtrado['data'].astype('datetime64[ns]')
-df_valores_filtrado['numero_da_semana'] = df_valores_filtrado['data'].apply(lambda x: datetime.date.isocalendar(x)[1])
-df_current_week = df_valores_filtrado[df_valores_filtrado['numero_da_semana'] == current_week]
-treinos_essa_semana = len(df_current_week['data'].drop_duplicates())
-st.metric(label="Treinos essa semana",value = treinos_essa_semana)
+# #######################################################################################
+# # Metrica treinos por semana
+# today = datetime.datetime.now() - datetime.timedelta(hours=3)
+# current_week = datetime.date.isocalendar(today)[1]
+# df_valores_filtrado['data'] = df_valores_filtrado['data'].astype('datetime64[ns]')
+# df_valores_filtrado['numero_da_semana'] = df_valores_filtrado['data'].apply(lambda x: datetime.date.isocalendar(x)[1])
+# df_current_week = df_valores_filtrado[df_valores_filtrado['numero_da_semana'] == current_week]
+# treinos_essa_semana = len(df_current_week['data'].drop_duplicates())
+# st.metric(label="Treinos essa semana",value = treinos_essa_semana)
 
-#######################################################################################
-# Gráfico treinos por semana
-df_treinos_por_semana = pd.DataFrame(df_valores_filtrado[['numero_da_semana']].drop_duplicates().value_counts()).reset_index()
+# #######################################################################################
+# # Gráfico treinos por semana
+# df_treinos_por_semana = pd.DataFrame(df_valores_filtrado[['numero_da_semana']].drop_duplicates().value_counts()).reset_index()
 
-col1, col2 = st.columns([3, 1])
-fig = px.bar(df_treinos_por_semana, x="numero_da_semana", y="count", text="count")
-fig.update_traces(textposition="outside")
-fig.update_layout(xaxis_title="N° da semana", 
-                  yaxis_title=None, 
-                  yaxis_range=[0, 7],
-                  width=800,
-                  height=300)
-fig.update_traces(marker=dict(color='#20837b'))
-fig.update_layout(title=dict(text='Treinos por semana', font=dict(size=22)))
-col1.plotly_chart(fig, theme=None, use_container_width=True)
+# col1, col2 = st.columns([3, 1])
+# fig = px.bar(df_treinos_por_semana, x="numero_da_semana", y="count", text="count")
+# fig.update_traces(textposition="outside")
+# fig.update_layout(xaxis_title="N° da semana", 
+#                   yaxis_title=None, 
+#                   yaxis_range=[0, 7],
+#                   width=800,
+#                   height=300)
+# fig.update_traces(marker=dict(color='#20837b'))
+# fig.update_layout(title=dict(text='Treinos por semana', font=dict(size=22)))
+# col1.plotly_chart(fig, theme=None, use_container_width=True)
 
 #######################################################################################
 # Evolução da maior carga por exercício
@@ -75,6 +75,36 @@ def get_max_carga(treino_selecionado):
     df_agupado_por_treino['max_carga'] = df_agupado_por_treino['carga_exercicio_1'].apply(max_valor)
     # resultado = df_agupado_por_treino.groupby('select_exercicio1')['max_carga'].max().reset_index()
     return df_agupado_por_treino
+
+df_agupado_por_treino = get_max_carga(treino_selecionado)
+
+#######################################################################################
+# Metrica treinos por semana
+today = datetime.datetime.now() - datetime.timedelta(hours=3)
+current_week = datetime.date.isocalendar(today)[1]
+df_agupado_por_treino['data'] = df_agupado_por_treino['data'].astype('datetime64[ns]')
+df_agupado_por_treino['numero_da_semana'] = df_agupado_por_treino['data'].apply(lambda x: datetime.date.isocalendar(x)[1])
+df_current_week = df_agupado_por_treino[df_agupado_por_treino['numero_da_semana'] == current_week]
+treinos_essa_semana = len(df_current_week['data'].drop_duplicates())
+st.metric(label="Treinos essa semana",value = treinos_essa_semana)
+
+#######################################################################################
+# Gráfico treinos por semana
+df_treinos_por_semana = pd.DataFrame(df_agupado_por_treino[['numero_da_semana']].drop_duplicates().value_counts()).reset_index()
+
+col1, col2 = st.columns([3, 1])
+fig = px.bar(df_treinos_por_semana, x="numero_da_semana", y="count", text="count")
+fig.update_traces(textposition="outside")
+fig.update_layout(xaxis_title="N° da semana", 
+                  yaxis_title=None, 
+                  yaxis_range=[0, 7],
+                  width=800,
+                  height=300)
+fig.update_traces(marker=dict(color='#20837b'))
+fig.update_layout(title=dict(text='Treinos por semana', font=dict(size=22)))
+col1.plotly_chart(fig, theme=None, use_container_width=True)
+
+
 
 def get_dataframes_from_treino(treino_selecionado):
     if treino_selecionado == '1- PEITO | OMBRO | TRÍCEPS':
