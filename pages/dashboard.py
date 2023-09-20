@@ -66,7 +66,6 @@ col1.plotly_chart(fig, theme=None, use_container_width=True)
 #######################################################################################
 # Evolução da maior carga por exercício
 
-
 lista_exercicio = Exercicio(treino_selecionado).get_exercicio()
 
 def get_max_carga(treino_selecionado):
@@ -164,8 +163,8 @@ cols = [col1, col2, col3]
 cols_2 = [col1, col2]
 
 def get_limits(df):
-    lim_inf = min(df['max_carga'])
-    lim_sup = max(df['max_carga'])
+    lim_inf = int(min(df['max_carga']))
+    lim_sup = int(max(df['max_carga']))
     if (lim_inf is None) or (lim_sup is None):
         valor_lim_inf = 0
         valor_lim_sup = 0
