@@ -92,7 +92,7 @@ last_week = datetime.date.isocalendar(today)[1] - 1
 df_last_week = df_agupado_por_treino[df_agupado_por_treino['numero_da_semana'] == last_week]
 treinos_semana_passada = len(df_last_week['data'].drop_duplicates())
 
-col1, col2 = st.columns([3, 1])
+col1, col2, _, _, _ = st.columns([1, 1, 1, 1, 1])
 with col1:
     st.metric(label="Treinos essa semana", value = treinos_essa_semana)
 with col2:
