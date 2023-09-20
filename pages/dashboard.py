@@ -58,7 +58,7 @@ fig.update_layout(xaxis_title="N° da semana",
                   yaxis_title=None, 
                   yaxis_range=[0, 7],
                   width=900,
-                  height=100)
+                  height=250)
 fig.update_traces(marker=dict(color='#20837b'))
 fig.update_layout(title=dict(text='Treinos por semana', font=dict(size=22)))
 col1.plotly_chart(fig, theme=None, use_container_width=True)
