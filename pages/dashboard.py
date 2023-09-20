@@ -62,15 +62,17 @@ lista_treinos = ['1- PEITO | OMBRO | TRÍCEPS',
 treino_selecionado = st.selectbox('Escolha o treino:', (lista_treinos))
 lista_exercicio = Exercicio(treino_selecionado).get_exercicio()
 
-df_agupado_por_treino = pd.DataFrame(df_valores_filtrado[df_valores_filtrado['treino'] == treino_selecionado])
-
-def max_valor(lista):
-    return max(lista)
-df_agupado_por_treino['max_carga'] = df_agupado_por_treino['carga_exercicio_1'].apply(max_valor)
-resultado = df_agupado_por_treino.groupby('select_exercicio1')['max_carga'].max().reset_index()
+def get_max_carga(treino_selecionado):
+    df_agupado_por_treino = pd.DataFrame(df_valores_filtrado[df_valores_filtrado['treino'] == treino_selecionado])
+    def max_valor(lista):
+        return max(lista)
+    df_agupado_por_treino['max_carga'] = df_agupado_por_treino['carga_exercicio_1'].apply(max_valor)
+    # resultado = df_agupado_por_treino.groupby('select_exercicio1')['max_carga'].max().reset_index()
+    return df_agupado_por_treino
 
 def get_dataframes_from_treino(treino_selecionado):
     if treino_selecionado == '1- PEITO | OMBRO | TRÍCEPS':
+        df_agupado_por_treino = get_max_carga(treino_selecionado)
         ##################################################################################################################
         # COSTAS E BICEPS
         df1 = df_agupado_por_treino[df_agupado_por_treino['select_exercicio1'] == 'COSTAS | PUXADA ALTA FRONTAL COM PEGADA ABERTA']
@@ -94,6 +96,7 @@ def get_dataframes_from_treino(treino_selecionado):
         titulo5 = 'Rosca Martelo'
 
     elif treino_selecionado == '2- COSTAS | BÍCEPS':
+        df_agupado_por_treino = get_max_carga(treino_selecionado)
         ##################################################################################################################
         # PEITO, OMBRO E TRICEPS
         df1 = df_agupado_por_treino[df_agupado_por_treino['select_exercicio1'] == 'PEITO | SUPINO RETO']
@@ -117,6 +120,7 @@ def get_dataframes_from_treino(treino_selecionado):
         titulo5 = 'Tríceps Corda'
         
     elif treino_selecionado == '3- PERNA':
+        df_agupado_por_treino = get_max_carga(treino_selecionado)
         ##################################################################################################################
         # PERNA
         df1 = df_agupado_por_treino[df_agupado_por_treino['select_exercicio1'] == 'PERNA | AGACHAMENTO']
