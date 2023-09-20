@@ -30,8 +30,8 @@ today = datetime.datetime.now() - datetime.timedelta(hours=3)
 current_week = datetime.date.isocalendar(today)[1]
 df_valores_filtrado['data'] = df_valores_filtrado['data'].astype('datetime64[ns]')
 df_valores_filtrado['numero_da_semana'] = df_valores_filtrado['data'].apply(lambda x: datetime.date.isocalendar(x)[1])
-df_current_week = df_valores_filtrado[df_valores_filtrado['numero_da_semana'] == current_week].drop_duplicates()
-treinos_essa_semana = len(df_current_week)
+df_current_week = df_valores_filtrado[df_valores_filtrado['numero_da_semana'] == current_week]
+treinos_essa_semana = len(df_current_week['data'].drop_duplicates())
 st.metric(label="Treinos essa semana",value = treinos_essa_semana)
 
 #######################################################################################
