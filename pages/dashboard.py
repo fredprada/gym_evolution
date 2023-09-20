@@ -158,12 +158,13 @@ for df, titulo, col in zip(df_list, titulos_list, cols):
                 y='max_carga',
                 text='max_carga',
                 markers=True, 
-                width=600, 
-                height=300)
+                width=1000, 
+                height=600)
     fig.update_traces(textposition='top center', 
                     textfont_size=16)
     fig.update_layout(yaxis_title=None,
                     xaxis_title=None,
                     yaxis={'visible': False})
     fig.update_layout(title=dict(text=titulo, font=dict(size=22)))
+    fig.update_traces(marker=dict(color='#20837b'))
     col.plotly_chart(fig, theme=None, use_container_width=True)
